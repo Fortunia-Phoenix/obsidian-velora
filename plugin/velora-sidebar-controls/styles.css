@@ -1,0 +1,91 @@
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split > .velora-sidebar-resize-handle {
+  position: absolute;
+  z-index: 52;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  touch-action: none;
+  transition: opacity 140ms ease;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:hover > .velora-sidebar-resize-handle,
+body.velora-sidebar-is-resizing .workspace-split.mod-horizontal.mod-left-split > .velora-sidebar-resize-handle {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.velora-sidebar-resize-handle::before {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.34);
+  transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.velora-sidebar-resize-handle:hover::before,
+body.velora-sidebar-is-resizing .velora-sidebar-resize-handle::before {
+  background: rgba(var(--velora-accent-rgb), 0.72);
+  box-shadow: 0 0 12px rgba(var(--velora-accent-rgb), 0.24);
+}
+
+.velora-sidebar-resize-handle.is-width {
+  top: 18px;
+  right: -6px;
+  bottom: 18px;
+  width: 12px;
+  cursor: ew-resize;
+}
+
+.velora-sidebar-resize-handle.is-width::before {
+  top: 38%;
+  right: 4px;
+  bottom: 38%;
+  width: 3px;
+}
+
+.velora-sidebar-resize-handle.is-height {
+  right: 18px;
+  bottom: -6px;
+  left: 18px;
+  height: 12px;
+  cursor: ns-resize;
+}
+
+.velora-sidebar-resize-handle.is-height::before {
+  right: 38%;
+  bottom: 4px;
+  left: 38%;
+  height: 3px;
+}
+
+.velora-sidebar-resize-handle.is-both {
+  right: -7px;
+  bottom: -7px;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+}
+
+.velora-sidebar-resize-handle.is-both::before {
+  inset: 3px;
+  border-radius: 0 0 8px 0;
+  background:
+    linear-gradient(135deg, transparent 0 43%, rgba(var(--velora-accent-rgb), 0.52) 44% 51%, transparent 52% 63%, rgba(var(--velora-accent-rgb), 0.72) 64% 71%, transparent 72%);
+}
+
+body.velora-sidebar-is-resizing,
+body.velora-sidebar-is-resizing * {
+  cursor: nwse-resize;
+  user-select: none !important;
+}
+
+body.velora-sidebar-is-resizing .workspace-split.mod-horizontal.mod-left-split {
+  transform: translateX(var(--velora-sidebar-left-margin)) !important;
+  transition: none !important;
+}
+
+body.velora-sidebar-is-resizing .workspace-split.mod-horizontal.mod-left-split::before {
+  width: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

@@ -1,0 +1,3640 @@
+/*
+Velora for Obsidian
+Inspired by pale product UI, soft glass panels, blue accents, and warm light.
+*/
+
+/* @settings
+
+name: Velora
+id: velora
+settings:
+  -
+    id: velora-appearance
+    title: 外观与界面
+    type: heading
+    level: 2
+  -
+    id: velora-global-colors
+    title: 全局配色
+    type: heading
+    level: 3
+  -
+    id: velora-palette
+    title: 全局配色方案
+    type: class-select
+    allowEmpty: false
+    default: velora-palette-velora
+    options:
+      -
+        label: Velora 蓝白奶油
+        value: velora-palette-velora
+      -
+        label: Aurora 金蓝流光
+        value: velora-palette-aurora
+      -
+        label: Pretty Note 紫色笔记
+        value: velora-palette-pretty-note
+      -
+        label: Ocean 冷蓝
+        value: velora-palette-ocean
+      -
+        label: Mint 奶油绿
+        value: velora-palette-mint
+  -
+    id: velora-interface-style
+    title: 界面表面
+    type: heading
+    level: 3
+  -
+    id: velora-font-style
+    title: 字体方案
+    type: class-select
+    allowEmpty: false
+    default: velora-font-sans
+    options:
+      -
+        label: 现代无衬线
+        value: velora-font-sans
+      -
+        label: 中文阅读
+        value: velora-font-readable
+      -
+        label: 文章衬线
+        value: velora-font-serif
+  -
+    id: velora-interface-density
+    title: 界面密度
+    type: class-select
+    allowEmpty: false
+    default: velora-density-comfortable
+    options:
+      -
+        label: 舒适
+        value: velora-density-comfortable
+      -
+        label: 紧凑
+        value: velora-density-compact
+  -
+    id: velora-panel-opacity
+    title: 主面板不透明度
+    type: variable-number-slider
+    default: 0.78
+    min: 0.4
+    max: 1
+    step: 0.01
+  -
+    id: velora-glass-blur
+    title: 玻璃模糊强度
+    type: variable-number-slider
+    format: px
+    default: 22
+    min: 0
+    max: 40
+    step: 1
+  -
+    id: velora-panel-radius
+    title: 主面板圆角
+    type: variable-number-slider
+    format: px
+    default: 28
+    min: 8
+    max: 40
+    step: 1
+  -
+    id: velora-workspace-gap
+    title: 工作区间距
+    type: variable-number-slider
+    format: px
+    default: 12
+    min: 4
+    max: 24
+    step: 1
+  -
+    id: velora-tabs
+    title: 标签栏与按钮
+    type: heading
+    level: 2
+  -
+    id: velora-tab-height
+    title: 胶囊标签高度
+    type: variable-number-slider
+    format: px
+    default: 30
+    min: 26
+    max: 40
+    step: 1
+  -
+    id: velora-tab-max-width
+    title: 标签最大宽度
+    type: variable-number-slider
+    format: px
+    default: 210
+    min: 120
+    max: 360
+    step: 10
+  -
+    id: velora-tab-outline-opacity
+    title: 标签描边强度
+    type: variable-number-slider
+    default: 0.48
+    min: 0.1
+    max: 1
+    step: 0.01
+  -
+    id: velora-view-action-size
+    title: 视图操作按钮尺寸
+    type: variable-number-slider
+    format: px
+    default: 32
+    min: 26
+    max: 40
+    step: 1
+  -
+    id: velora-file-explorer
+    title: 文件浏览器
+    type: heading
+    level: 2
+  -
+    id: velora-rainbow-tree-settings
+    title: 彩虹文件夹
+    type: heading
+    level: 3
+  -
+    id: velora-rainbow-tree
+    title: 启用彩虹文件夹
+    type: class-toggle
+  -
+    id: velora-rainbow-folder-bg-opacity
+    title: 顶级文件夹背景不透明度
+    type: variable-number-slider
+    default: 0.18
+    min: 0
+    max: 1
+    step: 0.01
+  -
+    id: velora-rainbow-folder-text-opacity
+    title: 顶级文件夹文字不透明度
+    type: variable-number-slider
+    default: 0.85
+    min: 0
+    max: 1
+    step: 0.01
+  -
+    id: velora-rainbow-folder-hover-opacity
+    title: 文件夹悬停背景不透明度
+    type: variable-number-slider
+    default: 0.22
+    min: 0
+    max: 1
+    step: 0.01
+  -
+    id: velora-rainbow-sub-bg-opacity
+    title: 子文件夹背景不透明度
+    type: variable-number-slider
+    default: 0.14
+    min: 0
+    max: 1
+    step: 0.01
+  -
+    id: velora-rainbow-sub-text-opacity
+    title: 子文件夹文字不透明度
+    type: variable-number-slider
+    default: 0.8
+    min: 0
+    max: 1
+    step: 0.01
+  -
+    id: velora-note
+    title: 笔记排版
+    type: heading
+    level: 2
+  -
+    id: velora-note-layout
+    title: 内容布局
+    type: heading
+    level: 3
+  -
+    id: velora-note-width
+    title: 内容宽度
+    type: variable-number-slider
+    format: px
+    default: 1080
+    min: 600
+    max: 1600
+    step: 20
+  -
+    id: velora-note-vertical-padding
+    title: 内容上下留白
+    type: variable-number-slider
+    format: px
+    default: 38
+    min: 12
+    max: 80
+    step: 2
+  -
+    id: velora-note-typography
+    title: 字体与标题
+    type: heading
+    level: 3
+  -
+    id: velora-note-font-size
+    title: 正文字号
+    type: variable-number-slider
+    format: px
+    default: 16
+    min: 13
+    max: 24
+    step: 1
+  -
+    id: velora-h1-font-size
+    title: 一级标题字号
+    type: variable-number-slider
+    format: px
+    default: 36
+    min: 26
+    max: 56
+    step: 1
+  -
+    id: velora-h2-font-size
+    title: 二级标题字号
+    type: variable-number-slider
+    format: px
+    default: 25
+    min: 18
+    max: 40
+    step: 1
+  -
+    id: velora-h3-font-size
+    title: 三级标题字号
+    type: variable-number-slider
+    format: px
+    default: 21
+    min: 16
+    max: 32
+    step: 1
+  -
+    id: velora-note-line-height
+    title: 正文行高
+    type: variable-number-slider
+    default: 1.78
+    min: 1.4
+    max: 2.2
+    step: 0.02
+  -
+    id: velora-note-surface
+    title: 笔记卡片
+    type: heading
+    level: 3
+  -
+    id: velora-note-radius
+    title: 笔记卡片圆角
+    type: variable-number-slider
+    format: px
+    default: 16
+    min: 0
+    max: 32
+    step: 1
+  -
+    id: velora-section-opacity
+    title: 笔记卡片透明度
+    type: variable-number-slider
+    default: 0.68
+    min: 0.3
+    max: 1
+    step: 0.01
+  -
+    id: velora-section-card-line-limit
+    title: 章节包围框最大行数
+    description: 超过该行数的二级标题章节自动使用无边框长文档模式。
+    type: variable-number-slider
+    default: 120
+    min: 20
+    max: 400
+    step: 10
+  -
+    id: velora-note-frame-width
+    title: Markdown 外框宽度
+    type: variable-number-slider
+    format: px
+    default: 1
+    min: 1
+    max: 4
+    step: 1
+  -
+    id: velora-note-frame-opacity
+    title: Markdown 外框颜色强度
+    type: variable-number-slider
+    default: 0.46
+    min: 0.1
+    max: 0.9
+    step: 0.01
+  -
+    id: velora-note-alignment
+    title: 对齐方式
+    type: heading
+    level: 3
+  -
+    id: velora-note-align
+    title: 正文对齐
+    type: class-select
+    allowEmpty: false
+    default: velora-note-align-left
+    options:
+      -
+        label: 左对齐
+        value: velora-note-align-left
+      -
+        label: 两端对齐
+        value: velora-note-align-justify
+      -
+        label: 居中
+        value: velora-note-align-center
+  -
+    id: velora-heading-align
+    title: 标题对齐
+    type: class-select
+    allowEmpty: false
+    default: velora-heading-align-left
+    options:
+      -
+        label: 左对齐
+        value: velora-heading-align-left
+      -
+        label: 居中
+        value: velora-heading-align-center
+  -
+    id: velora-background
+    title: 背景图片
+    type: heading
+    level: 2
+  -
+    id: velora-background-source
+    title: 图片来源
+    type: heading
+    level: 3
+  -
+    id: velora-background-image
+    title: 启用背景图片
+    type: class-toggle
+  -
+    id: velora-light-background-image
+    title: 浅色背景图片 URL
+    type: variable-text
+    default: none
+  -
+    id: velora-dark-background-image
+    title: 深色背景图片 URL
+    type: variable-text
+    default: none
+  -
+    id: velora-background-effects
+    title: 显示效果
+    type: heading
+    level: 3
+  -
+    id: velora-background-opacity
+    title: 背景图片不透明度
+    type: variable-number-slider
+    default: 0.18
+    min: 0
+    max: 0.8
+    step: 0.01
+  -
+    id: velora-background-blur
+    title: 背景图片模糊
+    type: variable-number-slider
+    default: 0
+    min: 0
+    max: 20
+    step: 0.5
+    format: px
+  -
+    id: velora-background-saturate
+    title: 背景图片饱和度
+    type: variable-number-slider
+    default: 1
+    min: 0
+    max: 3
+    step: 0.1
+  -
+    id: velora-background-brightness
+    title: 背景图片亮度
+    type: variable-number-slider
+    default: 1
+    min: 0
+    max: 3
+    step: 0.1
+  -
+    id: velora-sidebar
+    title: 悬浮侧边栏
+    type: heading
+    level: 2
+  -
+    id: velora-sidebar-display
+    title: 显示控制
+    type: heading
+    level: 3
+  -
+    id: velora-floating-sidebar
+    title: 启用左侧浮动侧边栏
+    type: class-toggle
+  -
+    id: velora-hide-left-ribbon
+    title: 隐藏左侧功能区
+    type: class-toggle
+  -
+    id: velora-sidebar-size
+    title: 尺寸与位置
+    type: heading
+    level: 3
+  -
+    id: velora-sidebar-width
+    title: 浮动侧边栏宽度
+    type: variable-number-slider
+    format: px
+    default: 300
+    min: 220
+    max: 480
+    step: 10
+  -
+    id: velora-sidebar-height
+    title: 浮动侧边栏高度
+    type: variable-number-slider
+    format: "%"
+    default: 86
+    min: 50
+    max: 96
+    step: 1
+  -
+    id: velora-sidebar-left-margin
+    title: 展开后左侧距离
+    type: variable-number-slider
+    format: px
+    default: 14
+    min: 0
+    max: 48
+    step: 1
+  -
+    id: velora-sidebar-surface
+    title: 外观
+    type: heading
+    level: 3
+  -
+    id: velora-sidebar-opacity
+    title: 浮动侧边栏透明度
+    type: variable-number-slider
+    default: 0.82
+    min: 0.35
+    max: 1
+    step: 0.01
+  -
+    id: velora-sidebar-blur
+    title: 侧边栏玻璃模糊
+    type: variable-number-slider
+    format: px
+    default: 22
+    min: 0
+    max: 40
+    step: 1
+  -
+    id: velora-sidebar-radius
+    title: 侧边栏圆角
+    type: variable-number-slider
+    format: px
+    default: 22
+    min: 8
+    max: 36
+    step: 1
+  -
+    id: velora-sidebar-liquid-glass
+    title: 启用液态玻璃效果
+    type: class-toggle
+  -
+    id: velora-sidebar-liquid-intensity
+    title: 液态玻璃流光强度
+    type: variable-number-slider
+    default: 0.28
+    min: 0.08
+    max: 0.6
+    step: 0.01
+  -
+    id: velora-sidebar-liquid-duration
+    title: 液态玻璃流动周期
+    type: variable-number-slider
+    format: s
+    default: 18
+    min: 10
+    max: 40
+    step: 1
+  -
+    id: velora-sidebar-interaction
+    title: 收回与把手
+    type: heading
+    level: 3
+  -
+    id: velora-sidebar-retract-delay
+    title: 自动缩回延迟
+    type: variable-number-slider
+    default: 1.2
+    min: 0
+    max: 10
+    step: 0.1
+    format: s
+  -
+    id: velora-sidebar-handle-width
+    title: 把手宽度
+    type: variable-number-slider
+    format: px
+    default: 14
+    min: 6
+    max: 28
+    step: 1
+  -
+    id: velora-sidebar-handle-height
+    title: 把手高度
+    type: variable-number-slider
+    format: px
+    default: 56
+    min: 28
+    max: 120
+    step: 2
+  -
+    id: velora-compatibility
+    title: 兼容性
+    type: heading
+    level: 2
+  -
+    id: velora-plugin-style
+    title: 第三方插件界面
+    description: 兼容优先只美化 Obsidian 原生控件；统一美化会覆盖更多插件控件。
+    type: class-select
+    allowEmpty: false
+    default: velora-plugin-style-safe
+    options:
+      -
+        label: 兼容优先
+        value: velora-plugin-style-safe
+      -
+        label: 统一美化
+        value: velora-plugin-style-unified
+  -
+    id: velora-accessibility
+    title: 可访问性与辅助
+    type: heading
+    level: 2
+  -
+    id: velora-reduce-motion
+    title: 减少界面动画
+    type: class-toggle
+  -
+    id: velora-hide-status-bar
+    title: 隐藏底部状态栏
+    type: class-toggle
+  -
+    id: velora-focus-ring-width
+    title: 键盘焦点环宽度
+    type: variable-number-slider
+    format: px
+    default: 2
+    min: 1
+    max: 4
+    step: 1
+  -
+    id: velora-scrollbar-size
+    title: 滚动条尺寸
+    type: variable-number-slider
+    format: px
+    default: 12
+    min: 8
+    max: 18
+    step: 1
+*/
+
+:root {
+  --velora-blue: #0087eb;
+  --velora-blue-soft: #b1e3ff;
+  --velora-cream: #ffe0ae;
+  --velora-ink: #111827;
+  --velora-surface-rgb: 255, 255, 255;
+  --velora-shadow-rgb: 17, 24, 39;
+  --velora-muted-color: #667085;
+  --velora-faint-color: #94a3b8;
+  --velora-white: rgb(var(--velora-surface-rgb));
+  --velora-bg: #eef5ff;
+  --velora-panel: rgba(var(--velora-surface-rgb), 0.72);
+  --velora-panel-strong: rgba(var(--velora-surface-rgb), 0.9);
+  --velora-border: rgba(var(--velora-surface-rgb), 0.72);
+  --velora-border-blue: rgba(var(--velora-accent-rgb), 0.18);
+  --velora-ui-hover: rgba(var(--velora-surface-rgb), 0.82);
+  --velora-ui-soft: rgba(var(--velora-surface-rgb), 0.58);
+  --velora-ui-field: rgba(var(--velora-surface-rgb), 0.78);
+  --velora-muted: #64748b;
+  --velora-shadow: 0 24px 70px rgba(var(--velora-accent-rgb), 0.14), 0 6px 20px rgba(var(--velora-shadow-rgb), 0.08);
+  --velora-shadow-soft: 0 12px 34px rgba(var(--velora-shadow-rgb), 0.08);
+  --velora-radius-lg: 28px;
+  --velora-radius-md: 18px;
+  --velora-radius-sm: 12px;
+  --velora-blur: blur(22px) saturate(1.25);
+}
+
+.theme-light {
+  --background-primary: #f5f9ff;
+  --background-primary-alt: #edf6ff;
+  --background-secondary: rgba(255, 255, 255, 0.58);
+  --background-secondary-alt: rgba(255, 255, 255, 0.82);
+  --background-modifier-hover: rgba(0, 135, 235, 0.08);
+  --background-modifier-active-hover: rgba(0, 135, 235, 0.12);
+  --background-modifier-border: rgba(17, 24, 39, 0.08);
+  --background-modifier-border-hover: rgba(0, 135, 235, 0.26);
+  --background-modifier-form-field: rgba(255, 255, 255, 0.82);
+  --background-modifier-form-field-highlighted: rgba(255, 255, 255, 0.94);
+  --text-normal: var(--velora-ink);
+  --text-muted: #667085;
+  --text-faint: #94a3b8;
+  --text-accent: var(--velora-blue);
+  --text-accent-hover: #006dc0;
+  --interactive-normal: rgba(255, 255, 255, 0.75);
+  --interactive-hover: rgba(255, 255, 255, 0.92);
+  --interactive-accent: var(--velora-blue);
+  --interactive-accent-hover: #0078d4;
+  --titlebar-background: transparent;
+  --titlebar-background-focused: transparent;
+  --tab-container-background: transparent;
+  --tab-outline-color: transparent;
+  --divider-color: rgba(17, 24, 39, 0.07);
+  --divider-color-hover: rgba(0, 135, 235, 0.26);
+  --modal-background: rgba(255, 255, 255, 0.88);
+  --prompt-border-color: rgba(255, 255, 255, 0.72);
+  --input-radius: 999px;
+  --button-radius: 999px;
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --font-interface-theme: "Neue Montreal", "Inter", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-text-theme: "Neue Montreal", "Inter", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-monospace-theme: "Fira Code", "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --line-height-normal: 1.65;
+  --line-height-tight: 1.35;
+}
+
+.theme-dark {
+  --background-primary: #0f172a;
+  --background-primary-alt: #111827;
+  --background-secondary: rgba(15, 23, 42, 0.68);
+  --background-secondary-alt: rgba(17, 24, 39, 0.88);
+  --background-modifier-hover: rgba(177, 227, 255, 0.1);
+  --background-modifier-active-hover: rgba(177, 227, 255, 0.14);
+  --background-modifier-border: rgba(255, 255, 255, 0.1);
+  --text-normal: #f8fafc;
+  --text-muted: #b6c2d4;
+  --text-faint: #8190a6;
+  --text-accent: #65c7ff;
+  --text-accent-hover: #9addff;
+  --interactive-normal: rgba(255, 255, 255, 0.08);
+  --interactive-hover: rgba(255, 255, 255, 0.14);
+  --interactive-accent: #0087eb;
+  --interactive-accent-hover: #2da7ff;
+  --titlebar-background: transparent;
+  --titlebar-background-focused: transparent;
+  --tab-container-background: transparent;
+  --tab-outline-color: transparent;
+  --divider-color: rgba(255, 255, 255, 0.1);
+  --divider-color-hover: rgba(177, 227, 255, 0.28);
+  --modal-background: rgba(15, 23, 42, 0.9);
+  --prompt-border-color: rgba(255, 255, 255, 0.12);
+}
+
+.app-container,
+.horizontal-main-container,
+.workspace {
+  background: transparent;
+}
+
+.workspace-split.mod-root {
+  background: transparent;
+}
+
+.workspace-leaf-content,
+.workspace-tabs,
+.workspace-tab-container,
+.workspace-tab-header-container,
+.workspace-ribbon,
+.mod-sidedock .workspace-leaf-content {
+  background: transparent;
+}
+
+.workspace-leaf-content[data-type="markdown"],
+.workspace-leaf-content[data-type="empty"] {
+  background: var(--velora-panel);
+  border: 1px solid var(--velora-border);
+  border-radius: var(--velora-panel-radius);
+  box-shadow: var(--velora-shadow);
+  overflow: hidden;
+  backdrop-filter: var(--velora-blur);
+}
+
+.workspace-leaf-content[data-type="markdown"] {
+  border-width: var(--velora-note-frame-width);
+  border-color: rgba(var(--velora-accent-rgb), var(--velora-note-frame-opacity));
+  background-clip: padding-box;
+  backdrop-filter: none;
+  box-shadow:
+    var(--velora-shadow),
+    inset 0 0 0 1px rgba(var(--velora-accent-rgb), calc(var(--velora-note-frame-opacity) * 0.32));
+}
+
+.workspace-leaf-content[data-type="markdown"].is-read-mode {
+  backdrop-filter: none;
+}
+
+.theme-dark .workspace-leaf-content[data-type="markdown"],
+.theme-dark .workspace-leaf-content[data-type="empty"] {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.theme-dark .workspace-leaf-content[data-type="markdown"] {
+  border-color: rgba(var(--velora-accent-rgb), var(--velora-note-frame-opacity));
+}
+
+.theme-dark .workspace-leaf-content[data-type="empty"] {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.workspace-split.mod-root .workspace-leaf {
+  padding: var(--velora-workspace-gap);
+}
+
+.mod-sidedock .workspace-leaf {
+  padding: max(6px, calc(var(--velora-workspace-gap) - 2px));
+}
+
+.mod-sidedock .workspace-leaf-content {
+  border-radius: max(8px, calc(var(--velora-panel-radius) - 4px));
+  border: 1px solid var(--velora-border);
+  background: rgba(var(--velora-surface-rgb), 0.48);
+  box-shadow: 0 14px 36px rgba(var(--velora-shadow-rgb), 0.06);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.theme-dark .mod-sidedock .workspace-leaf-content {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.workspace-ribbon {
+  border: 0;
+  padding-top: 10px;
+}
+
+body.velora-hide-left-ribbon .workspace-ribbon.mod-left {
+  display: none !important;
+}
+
+.side-dock-ribbon-action,
+.clickable-icon {
+  border-radius: 999px;
+  color: var(--text-muted);
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.side-dock-ribbon-action:hover,
+.clickable-icon:hover {
+  background: var(--velora-ui-hover);
+  color: var(--velora-blue);
+  transform: translateY(-1px);
+}
+
+.theme-dark .side-dock-ribbon-action:hover,
+.theme-dark .clickable-icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.titlebar,
+.status-bar {
+  background: transparent;
+  border: 0;
+}
+
+.status-bar {
+  margin: 0 14px 12px 0;
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: rgba(var(--velora-surface-rgb), 0.76);
+  box-shadow: 0 8px 20px rgba(var(--velora-shadow-rgb), 0.07);
+  backdrop-filter: blur(14px);
+}
+
+.theme-dark .status-bar {
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.workspace-tab-header-container {
+  height: calc(var(--velora-tab-height) + 18px);
+  padding: 8px 12px 4px;
+  border: 0;
+  gap: 4px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Preserve the native window-controls safe area on the rightmost tab bar. */
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  padding-right: calc(var(--size-4-2, 8px) + var(--frame-right-space, 126px));
+}
+
+.titlebar-button-container.mod-right {
+  z-index: var(--layer-cover);
+}
+
+.workspace-tabs.mod-top-right-space .workspace-tab-header-new-tab {
+  display: flex;
+}
+
+.workspace-tabs.mod-top-right-space .workspace-tab-header-tab-list {
+  flex-basis: 24px;
+  width: 24px;
+  min-width: 24px;
+}
+
+.workspace-tab-header-container-inner {
+  flex: 0 1 auto;
+  min-width: 0;
+  gap: 6px;
+  align-items: center;
+  overflow: auto;
+}
+
+.workspace-tab-header-new-tab,
+.workspace-tab-header-tab-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  margin-block: 0;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.workspace-tab-header {
+  border-radius: 999px;
+  background: rgba(var(--velora-surface-rgb), 0.5);
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+/* Keep document tabs as independent, fully enclosed capsules. */
+.workspace-split.mod-root .workspace-tab-header {
+  --velora-tab-outline: rgba(var(--velora-accent-rgb), var(--velora-tab-outline-opacity));
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: var(--velora-tab-height);
+  min-height: var(--velora-tab-height);
+  max-width: var(--velora-tab-max-width);
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.2) !important;
+  border-radius: 999px !important;
+  background: rgba(var(--velora-surface-rgb), 0.52);
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.12);
+}
+
+.workspace-split.mod-root .workspace-tab-header::before,
+.workspace-split.mod-root .workspace-tab-header-inner::before,
+.workspace-split.mod-root .workspace-tab-header-inner::after {
+  display: none !important;
+  content: none !important;
+}
+
+.workspace-split.mod-root .workspace-tab-header::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  z-index: 3;
+  inset: 1px;
+  box-sizing: border-box;
+  border: 1px solid var(--velora-tab-outline);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.workspace-split.mod-root .workspace-tab-header-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0 5px 0 10px;
+  border: 0 !important;
+  border-radius: inherit !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.workspace-split.mod-root .workspace-tab-header-inner-title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.workspace-split.mod-root .workspace-tab-header-inner-close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-block: 0;
+  padding: 0;
+  border-radius: 999px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.workspace-split.mod-root .workspace-tab-header-inner-close-button:hover {
+  background: rgba(var(--velora-accent-rgb), 0.12);
+  color: var(--velora-blue);
+}
+
+.workspace-tab-header:hover {
+  background: rgba(var(--velora-surface-rgb), 0.85);
+  border-color: var(--velora-border);
+  transform: translateY(-1px);
+}
+
+.workspace-tab-header.is-active {
+  background: var(--velora-white);
+  border-color: rgba(var(--velora-accent-rgb), 0.16);
+  box-shadow: 0 10px 24px rgba(var(--velora-accent-rgb), 0.12);
+  color: var(--velora-ink);
+}
+
+.workspace-split.mod-root .workspace-tab-header.is-active {
+  --velora-tab-outline: rgba(var(--velora-accent-rgb), min(1, calc(var(--velora-tab-outline-opacity) + 0.24)));
+  border-color: rgba(var(--velora-accent-rgb), 0.32) !important;
+  background: color-mix(in srgb, var(--velora-white) 94%, var(--velora-blue));
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.18),
+    0 7px 18px rgba(var(--velora-accent-rgb), 0.12);
+}
+
+.theme-dark .workspace-tab-header {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.theme-dark .workspace-tab-header:hover,
+.theme-dark .workspace-tab-header.is-active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+.workspace-tab-header-inner-title {
+  font-weight: 600;
+}
+
+.view-header {
+  height: 54px;
+  border: 0;
+  background: transparent;
+  padding: 0 16px;
+}
+
+.view-header-title {
+  font-weight: 700;
+  color: var(--text-normal);
+}
+
+.view-header .view-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: max-content;
+  gap: 7px;
+}
+
+.view-header .view-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--velora-view-action-size);
+  width: var(--velora-view-action-size);
+  height: var(--velora-view-action-size);
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.2);
+  border-radius: 999px;
+  background: rgba(var(--velora-surface-rgb), 0.74);
+  color: color-mix(in srgb, var(--velora-ink) 62%, var(--velora-blue));
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--velora-surface-rgb), 0.5),
+    0 6px 16px rgba(var(--velora-shadow-rgb), 0.07);
+}
+
+.view-header .view-action svg {
+  width: max(14px, calc(var(--velora-view-action-size) - 14px));
+  height: max(14px, calc(var(--velora-view-action-size) - 14px));
+  stroke-width: 2;
+}
+
+.view-header .view-action:hover {
+  border-color: rgba(var(--velora-accent-rgb), 0.42);
+  background: color-mix(in srgb, rgb(var(--velora-surface-rgb)) 88%, var(--velora-blue));
+  color: var(--velora-blue);
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--velora-surface-rgb), 0.64),
+    0 8px 18px rgba(var(--velora-accent-rgb), 0.14);
+}
+
+.view-header .view-action:focus-visible {
+  outline: var(--velora-focus-ring-width) solid rgba(var(--velora-accent-rgb), 0.46);
+  outline-offset: 2px;
+}
+
+.theme-dark .view-header .view-action {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(248, 250, 252, 0.78);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.nav-header {
+  padding: 12px 14px 8px;
+}
+
+.nav-buttons-container {
+  gap: 7px;
+}
+
+.nav-files-container {
+  padding: 8px 12px 18px;
+}
+
+.nav-folder-title,
+.nav-file-title {
+  border-radius: 16px;
+  margin: 2px 0;
+  padding: 6px 10px;
+  color: var(--text-muted);
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+  background: rgba(var(--velora-surface-rgb), 0.72);
+  color: var(--text-normal);
+  transform: translateX(2px);
+}
+
+.nav-file-title.is-active {
+  background: linear-gradient(135deg, rgba(var(--velora-accent-rgb), 0.16), rgba(var(--velora-sky-rgb), 0.36));
+  color: var(--velora-ink);
+  box-shadow: inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.16);
+}
+
+.theme-dark .nav-folder-title:hover,
+.theme-dark .nav-file-title:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .nav-file-title.is-active {
+  color: #f8fafc;
+}
+
+.nav-folder-title-content,
+.nav-file-title-content {
+  font-weight: 560;
+}
+
+.search-input-container input,
+.prompt-input,
+.document-search-input,
+.setting-item-control > input[type="text"],
+.setting-item-control > input[type="search"],
+.setting-item-control > input[type="email"],
+.setting-item-control > input[type="password"],
+.setting-item-control > textarea,
+.setting-item-control > select,
+.setting-item-control > .dropdown,
+body.velora-plugin-style-unified input[type="text"]:not(.metadata-container *),
+body.velora-plugin-style-unified input[type="search"]:not(.metadata-container *),
+body.velora-plugin-style-unified input[type="email"]:not(.metadata-container *),
+body.velora-plugin-style-unified input[type="password"]:not(.metadata-container *),
+body.velora-plugin-style-unified textarea:not(.metadata-container *),
+body.velora-plugin-style-unified select:not(.metadata-container *),
+body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
+  border-radius: 999px;
+  border: 1px solid var(--velora-border);
+  background: var(--velora-ui-field);
+  box-shadow: inset 0 1px 0 var(--velora-border), 0 8px 22px rgba(var(--velora-shadow-rgb), 0.06);
+}
+
+/* Keep the platform picker native so Obsidian controls its placement reliably. */
+.setting-item-control > select,
+.setting-item-control > .dropdown,
+body.velora-plugin-style-unified select:not(.metadata-container *),
+body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
+  border-radius: 10px;
+}
+
+.setting-item-control > textarea,
+body.velora-plugin-style-unified textarea:not(.metadata-container *) {
+  border-radius: 20px;
+}
+
+.theme-dark .search-input-container input,
+.theme-dark .prompt-input,
+.theme-dark .document-search-input,
+.theme-dark .setting-item-control > input[type="text"],
+.theme-dark .setting-item-control > input[type="search"],
+.theme-dark .setting-item-control > input[type="email"],
+.theme-dark .setting-item-control > input[type="password"],
+.theme-dark .setting-item-control > textarea,
+.theme-dark .setting-item-control > select,
+.theme-dark .setting-item-control > .dropdown,
+.theme-dark.velora-plugin-style-unified input[type="text"]:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified input[type="search"]:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified input[type="email"]:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified input[type="password"]:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified textarea:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified select:not(.metadata-container *),
+.theme-dark.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.setting-item-control > button:not(.clickable-icon),
+.modal-button-container > button:not(.clickable-icon),
+.prompt button:not(.clickable-icon),
+.notice button:not(.clickable-icon),
+button.mod-cta,
+button.mod-warning,
+.workspace-leaf-content[data-type="markdown"] :is(.copy-code-button, .edit-block-button),
+body.velora-plugin-style-unified button:not(.clickable-icon) {
+  border-radius: 999px;
+  border: 1px solid var(--velora-border);
+  box-shadow: 0 9px 22px rgba(var(--velora-shadow-rgb), 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.setting-item-control > button:not(.clickable-icon):hover,
+.modal-button-container > button:not(.clickable-icon):hover,
+.prompt button:not(.clickable-icon):hover,
+.notice button:not(.clickable-icon):hover,
+button.mod-cta:hover,
+button.mod-warning:hover,
+.workspace-leaf-content[data-type="markdown"] :is(.copy-code-button, .edit-block-button):hover,
+body.velora-plugin-style-unified button:not(.clickable-icon):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(var(--velora-accent-rgb), 0.16);
+}
+
+.mod-cta {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--velora-blue) 76%, white) 0%, var(--velora-blue) 100%);
+  color: white;
+}
+
+.markdown-source-view {
+  font-size: var(--velora-note-font-size);
+}
+
+.markdown-preview-view,
+.markdown-source-view.cm-s-obsidian,
+.markdown-source-view .cm-s-obsidian {
+  color: var(--text-normal);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  font-size: var(--velora-h1-font-size);
+  line-height: 1.16;
+  font-weight: 760;
+  letter-spacing: 0;
+  color: var(--text-normal);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  font-size: var(--velora-h2-font-size);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  font-size: var(--velora-h3-font-size);
+  font-weight: 650;
+}
+
+.markdown-preview-view p,
+.markdown-preview-view li,
+.markdown-source-view.mod-cm6 .cm-line {
+  color: var(--text-normal);
+}
+
+.markdown-source-view.mod-cm6 .cm-link,
+.markdown-source-view.mod-cm6 .cm-url {
+  color: var(--velora-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.markdown-preview-view a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.markdown-source-view.mod-cm6 .cm-quote {
+  border-left: 0;
+  border-radius: 20px;
+  background: rgba(var(--velora-surface-rgb), 0.6);
+  box-shadow: inset 0 0 0 1px var(--velora-border);
+  padding: 14px 18px;
+}
+
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  border-radius: 24px;
+}
+
+.markdown-preview-view pre {
+  padding: 18px;
+}
+
+.markdown-preview-view table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.callout {
+  border: 1px solid var(--velora-border);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(var(--velora-surface-rgb), 0.82), rgba(var(--velora-sky-rgb), 0.24));
+  box-shadow: var(--velora-shadow-soft);
+}
+
+.theme-dark .callout {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(var(--velora-accent-rgb), 0.1));
+}
+
+.callout-title {
+  font-weight: 700;
+}
+
+.checkbox-container {
+  border-radius: 999px;
+}
+
+.setting-item-control input[type="checkbox"],
+.markdown-preview-view input[type="checkbox"],
+.markdown-source-view input[type="checkbox"],
+body.velora-plugin-style-unified input[type="checkbox"] {
+  border-radius: 8px;
+  border-color: rgba(var(--velora-accent-rgb), 0.32);
+}
+
+.setting-item-control input[type="checkbox"]:checked,
+.markdown-preview-view input[type="checkbox"]:checked,
+.markdown-source-view input[type="checkbox"]:checked,
+body.velora-plugin-style-unified input[type="checkbox"]:checked {
+  background-color: var(--velora-blue);
+  border-color: var(--velora-blue);
+}
+
+.modal,
+.prompt {
+  border-radius: 28px;
+  border: 1px solid var(--prompt-border-color);
+  background: var(--modal-background);
+  box-shadow: var(--velora-shadow);
+  backdrop-filter: var(--velora-blur);
+}
+
+.suggestion-container,
+.menu {
+  border-radius: 22px;
+  border: 1px solid var(--velora-border);
+  background: var(--velora-panel-strong);
+  box-shadow: var(--velora-shadow-soft);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.theme-dark .suggestion-container,
+.theme-dark .menu {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.94);
+}
+
+.suggestion-item,
+.menu-item {
+  border-radius: 14px;
+}
+
+.suggestion-item.is-selected,
+.menu-item:hover {
+  background: rgba(var(--velora-accent-rgb), 0.1);
+}
+
+.tree-item-self {
+  border-radius: 16px;
+}
+
+.backlink-pane,
+.outgoing-link-pane,
+.tag-container,
+.search-result-container {
+  padding: 8px;
+}
+
+.search-result-file-match,
+.tree-item-self:hover {
+  background: rgba(var(--velora-surface-rgb), 0.64);
+}
+
+.theme-dark .search-result-file-match,
+.theme-dark .tree-item-self:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+::-webkit-scrollbar {
+  width: var(--velora-scrollbar-size);
+  height: var(--velora-scrollbar-size);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.24);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--velora-accent-rgb), 0.42);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   Velora tokens, palettes, note surfaces, and optional features
+   ============================================================ */
+
+body {
+  position: relative;
+  isolation: isolate;
+  letter-spacing: 0;
+  --velora-accent-rgb: 0, 135, 235;
+  --velora-warm-rgb: 255, 224, 174;
+  --velora-sky-rgb: 177, 227, 255;
+  --velora-surface-rgb: 255, 255, 255;
+  --velora-shadow-rgb: 17, 24, 39;
+  --velora-muted-color: #667085;
+  --velora-faint-color: #94a3b8;
+  --velora-dark-surface-rgb: 15, 23, 42;
+  --velora-dark-bg-start: #0b1220;
+  --velora-dark-bg-mid: #111827;
+  --velora-dark-bg-end: #082c45;
+  --velora-panel-rgb: var(--velora-surface-rgb);
+  --velora-panel-opacity: 0.78;
+  --velora-glass-blur: 22px;
+  --velora-panel-radius: 28px;
+  --velora-workspace-gap: 12px;
+  --velora-tab-height: 30px;
+  --velora-tab-max-width: 210px;
+  --velora-tab-outline-opacity: 0.48;
+  --velora-view-action-size: 32px;
+  --velora-note-vertical-padding: 38px;
+  --velora-h2-font-size: 25px;
+  --velora-h3-font-size: 21px;
+  --velora-sidebar-blur: 22px;
+  --velora-sidebar-radius: 22px;
+  --velora-focus-ring-width: 2px;
+  --velora-scrollbar-size: 12px;
+  --velora-gradient-duration: 20s;
+  --velora-gradient-intensity: 0.58;
+  --velora-white: rgb(var(--velora-surface-rgb));
+  --velora-panel: rgba(var(--velora-panel-rgb), var(--velora-panel-opacity));
+  --velora-panel-strong: rgba(var(--velora-surface-rgb), 0.9);
+  --velora-border: rgba(var(--velora-surface-rgb), 0.72);
+  --velora-ui-hover: rgba(var(--velora-surface-rgb), 0.82);
+  --velora-ui-soft: rgba(var(--velora-surface-rgb), 0.58);
+  --velora-ui-field: rgba(var(--velora-surface-rgb), 0.78);
+  --velora-shadow: 0 24px 70px rgba(var(--velora-accent-rgb), 0.14), 0 6px 20px rgba(var(--velora-shadow-rgb), 0.08);
+  --velora-shadow-soft: 0 12px 34px rgba(var(--velora-shadow-rgb), 0.08);
+  --velora-blur: blur(var(--velora-glass-blur)) saturate(1.25);
+  --interactive-accent-rgb: var(--velora-accent-rgb);
+  --text-selection: rgba(var(--velora-accent-rgb), 0.2);
+  --text-highlight-bg: rgba(var(--velora-warm-rgb), 0.38);
+  --link-color: var(--velora-blue);
+  --link-color-hover: color-mix(in srgb, var(--velora-blue) 76%, black);
+  --link-unresolved-color: color-mix(in srgb, var(--velora-blue) 56%, var(--velora-muted-color));
+  --nav-item-color-active: var(--velora-ink);
+  --nav-item-background-hover: rgba(var(--velora-accent-rgb), 0.08);
+  --nav-item-background-active: rgba(var(--velora-accent-rgb), 0.14);
+  --icon-color-hover: var(--velora-blue);
+  --icon-color-focused: var(--velora-blue);
+  --checkbox-color: var(--velora-blue);
+  --checkbox-color-hover: color-mix(in srgb, var(--velora-blue) 82%, black);
+  --tag-color: var(--velora-blue);
+  --tag-background: rgba(var(--velora-accent-rgb), 0.1);
+  --tag-background-hover: rgba(var(--velora-accent-rgb), 0.16);
+  --graph-line: rgba(var(--velora-shadow-rgb), 0.16);
+  --graph-node: var(--velora-muted-color);
+  --graph-node-focused: var(--velora-blue);
+  --graph-node-tag: color-mix(in srgb, var(--velora-blue) 62%, var(--velora-cream));
+  --graph-node-attachment: var(--velora-cream);
+  --graph-node-unresolved: var(--velora-faint-color);
+  --velora-bg-start: #f3f7ff;
+  --velora-bg-mid: #edf7ff;
+  --velora-bg-end: var(--velora-blue-soft);
+  --velora-note-width: 1080px;
+  --velora-note-font-size: 16px;
+  --velora-h1-font-size: 36px;
+  --velora-note-line-height: 1.78;
+  --velora-note-radius: 16px;
+  --velora-section-opacity: 0.68;
+  --velora-section-card-line-limit: 120;
+  --velora-note-frame-width: 1px;
+  --velora-note-frame-opacity: 0.46;
+  --velora-section-surface: rgba(var(--velora-surface-rgb), var(--velora-section-opacity));
+  --velora-section-border: color-mix(in srgb, var(--velora-blue) 18%, transparent);
+  --velora-note-soft: color-mix(in srgb, var(--velora-blue-soft) 24%, rgb(var(--velora-surface-rgb)));
+  --velora-note-emphasis: #b13f48;
+  --velora-highlight: rgba(var(--velora-warm-rgb), 0.34);
+  --velora-light-background-image: none;
+  --velora-dark-background-image: none;
+  --velora-background-image-current: var(--velora-light-background-image);
+  --velora-background-opacity: 0.18;
+  --velora-background-blur: 0px;
+  --velora-background-saturate: 1;
+  --velora-background-brightness: 1;
+  --velora-sidebar-width: 300px;
+  --velora-sidebar-height: 86%;
+  --velora-sidebar-left-margin: 14px;
+  --velora-sidebar-opacity: 0.82;
+  --velora-sidebar-liquid-intensity: 0.28;
+  --velora-sidebar-liquid-duration: 18s;
+  --velora-sidebar-retract-delay: 1.2s;
+  --velora-sidebar-handle-width: 14px;
+  --velora-sidebar-handle-height: 56px;
+  background:
+    radial-gradient(circle at 71% 19%, rgba(var(--velora-warm-rgb), 0.62) 0, rgba(var(--velora-warm-rgb), 0.26) 18%, transparent 40%),
+    radial-gradient(circle at 72% 78%, rgba(var(--velora-accent-rgb), 0.22) 0, rgba(var(--velora-sky-rgb), 0.36) 24%, transparent 48%),
+    linear-gradient(180deg, var(--velora-bg-start) 0%, var(--velora-bg-mid) 48%, var(--velora-bg-end) 100%);
+}
+
+body.velora-palette-velora {
+  --velora-blue: #0087eb;
+  --velora-blue-soft: #b1e3ff;
+  --velora-cream: #ffe0ae;
+  --velora-ink: #111827;
+  --velora-accent-rgb: 0, 135, 235;
+  --velora-warm-rgb: 255, 224, 174;
+  --velora-sky-rgb: 177, 227, 255;
+  --velora-bg-start: #f3f7ff;
+  --velora-bg-mid: #edf7ff;
+  --velora-bg-end: #b1e3ff;
+  --velora-note-emphasis: #b13f48;
+  --velora-surface-rgb: 255, 255, 255;
+  --velora-shadow-rgb: 17, 24, 39;
+  --velora-muted-color: #667085;
+  --velora-faint-color: #94a3b8;
+  --velora-dark-surface-rgb: 15, 23, 42;
+  --velora-dark-bg-start: #0b1220;
+  --velora-dark-bg-mid: #111827;
+  --velora-dark-bg-end: #082c45;
+}
+
+body.velora-palette-aurora {
+  --velora-blue: #0798df;
+  --velora-blue-soft: #9ee5f8;
+  --velora-cream: #ffd98f;
+  --velora-ink: #17202b;
+  --velora-accent-rgb: 7, 152, 223;
+  --velora-warm-rgb: 255, 217, 143;
+  --velora-sky-rgb: 158, 229, 248;
+  --velora-bg-start: #f4f8ff;
+  --velora-bg-mid: #f7f5ee;
+  --velora-bg-end: #a8e4f5;
+  --velora-note-emphasis: #ad5a4d;
+  --velora-surface-rgb: 250, 252, 252;
+  --velora-panel-rgb: 250, 252, 252;
+  --velora-shadow-rgb: 37, 73, 92;
+  --velora-muted-color: #60717e;
+  --velora-faint-color: #91a1aa;
+  --velora-panel-strong: rgba(252, 253, 252, 0.92);
+  --velora-border: rgba(var(--velora-accent-rgb), 0.2);
+  --velora-ui-hover: rgba(var(--velora-sky-rgb), 0.42);
+  --velora-ui-soft: rgba(var(--velora-sky-rgb), 0.28);
+  --velora-ui-field: rgba(252, 253, 252, 0.82);
+  --velora-section-surface: rgba(var(--velora-surface-rgb), var(--velora-section-opacity));
+  --velora-section-border: rgba(var(--velora-accent-rgb), 0.22);
+  --velora-note-soft: rgba(var(--velora-sky-rgb), 0.38);
+  --velora-dark-surface-rgb: 15, 28, 36;
+  --velora-dark-bg-start: #0b1720;
+  --velora-dark-bg-mid: #17242a;
+  --velora-dark-bg-end: #123849;
+}
+
+body.velora-palette-pretty-note {
+  --velora-blue: #6553a6;
+  --velora-blue-soft: #cfc3e6;
+  --velora-cream: #e8c9d5;
+  --velora-ink: #26242c;
+  --velora-accent-rgb: 101, 83, 166;
+  --velora-warm-rgb: 232, 201, 213;
+  --velora-sky-rgb: 207, 195, 230;
+  --velora-bg-start: #f8f2f8;
+  --velora-bg-mid: #ebe2f1;
+  --velora-bg-end: #cfbfdf;
+  --velora-note-emphasis: #9d5066;
+  --velora-surface-rgb: 248, 244, 251;
+  --velora-shadow-rgb: 47, 43, 62;
+  --velora-muted-color: #6c6975;
+  --velora-faint-color: #9b98a5;
+  --velora-panel-rgb: 246, 239, 249;
+  --velora-panel-strong: rgba(250, 246, 251, 0.94);
+  --velora-border: rgba(var(--velora-accent-rgb), 0.24);
+  --velora-ui-hover: rgba(var(--velora-sky-rgb), 0.58);
+  --velora-ui-soft: rgba(var(--velora-sky-rgb), 0.46);
+  --velora-ui-field: rgba(250, 246, 251, 0.88);
+  --velora-section-surface: rgba(var(--velora-surface-rgb), var(--velora-section-opacity));
+  --velora-section-border: rgba(var(--velora-accent-rgb), 0.3);
+  --velora-note-soft: rgba(var(--velora-sky-rgb), 0.64);
+  --velora-dark-surface-rgb: 29, 26, 38;
+  --velora-dark-bg-start: #15131b;
+  --velora-dark-bg-mid: #201d29;
+  --velora-dark-bg-end: #342c3b;
+}
+
+body.velora-palette-ocean {
+  --velora-blue: #0ea5e9;
+  --velora-blue-soft: #bae6fd;
+  --velora-cream: #dbeafe;
+  --velora-ink: #0f172a;
+  --velora-accent-rgb: 14, 165, 233;
+  --velora-warm-rgb: 219, 234, 254;
+  --velora-sky-rgb: 186, 230, 253;
+  --velora-bg-start: #f4fcff;
+  --velora-bg-mid: #e4f7ff;
+  --velora-bg-end: #a8ddf3;
+  --velora-note-emphasis: #0f766e;
+  --velora-surface-rgb: 245, 252, 255;
+  --velora-shadow-rgb: 16, 47, 66;
+  --velora-muted-color: #587184;
+  --velora-faint-color: #8aa2b2;
+  --velora-dark-surface-rgb: 9, 29, 40;
+  --velora-dark-bg-start: #06141d;
+  --velora-dark-bg-mid: #0b2533;
+  --velora-dark-bg-end: #0c4259;
+}
+
+body.velora-palette-mint {
+  --velora-blue: #10b981;
+  --velora-blue-soft: #bbf7d0;
+  --velora-cream: #fff1b8;
+  --velora-ink: #13251f;
+  --velora-accent-rgb: 16, 185, 129;
+  --velora-warm-rgb: 255, 241, 184;
+  --velora-sky-rgb: 187, 247, 208;
+  --velora-bg-start: #f6fff9;
+  --velora-bg-mid: #e5f7ec;
+  --velora-bg-end: #c5ecd3;
+  --velora-note-emphasis: #9a3412;
+  --velora-surface-rgb: 246, 255, 249;
+  --velora-shadow-rgb: 24, 54, 41;
+  --velora-muted-color: #5d7167;
+  --velora-faint-color: #8ca298;
+  --velora-dark-surface-rgb: 13, 34, 27;
+  --velora-dark-bg-start: #091712;
+  --velora-dark-bg-mid: #10261e;
+  --velora-dark-bg-end: #123f2d;
+}
+
+.theme-dark body,
+body.theme-dark {
+  --velora-bg-start: var(--velora-dark-bg-start);
+  --velora-bg-mid: var(--velora-dark-bg-mid);
+  --velora-bg-end: var(--velora-dark-bg-end);
+  --velora-surface-rgb: var(--velora-dark-surface-rgb);
+  --velora-panel-rgb: var(--velora-dark-surface-rgb);
+  --velora-white: rgb(var(--velora-dark-surface-rgb));
+  --velora-panel: rgba(var(--velora-panel-rgb), var(--velora-panel-opacity));
+  --velora-panel-strong: rgba(var(--velora-dark-surface-rgb), 0.9);
+  --velora-border: rgba(255, 255, 255, 0.12);
+  --velora-ui-hover: rgba(255, 255, 255, 0.12);
+  --velora-ui-soft: rgba(255, 255, 255, 0.08);
+  --velora-ui-field: rgba(var(--velora-dark-surface-rgb), 0.78);
+  --velora-section-surface: rgba(var(--velora-dark-surface-rgb), var(--velora-section-opacity));
+  --velora-section-border: rgba(255, 255, 255, 0.12);
+  --velora-note-soft: rgba(255, 255, 255, 0.08);
+  --background-primary: var(--velora-dark-bg-mid);
+  --background-primary-alt: var(--velora-dark-bg-start);
+  --background-secondary: rgba(var(--velora-dark-surface-rgb), 0.68);
+  --background-secondary-alt: rgba(var(--velora-dark-surface-rgb), 0.88);
+  --background-modifier-hover: rgba(var(--velora-accent-rgb), 0.12);
+  --background-modifier-active-hover: rgba(var(--velora-accent-rgb), 0.18);
+  --background-modifier-cover: rgba(var(--velora-dark-surface-rgb), 0.72);
+  --background-modifier-border-hover: rgba(var(--velora-accent-rgb), 0.34);
+  --text-selection: rgba(var(--velora-accent-rgb), 0.28);
+  --text-highlight-bg: rgba(var(--velora-warm-rgb), 0.24);
+  --text-accent: color-mix(in srgb, var(--velora-blue) 78%, white);
+  --text-accent-hover: color-mix(in srgb, var(--velora-blue) 58%, white);
+  --link-color: var(--text-accent);
+  --link-color-hover: var(--text-accent-hover);
+  --link-unresolved-color: color-mix(in srgb, var(--text-accent) 52%, #b6c2d4);
+  --interactive-accent: var(--velora-blue);
+  --interactive-accent-hover: color-mix(in srgb, var(--velora-blue) 82%, white);
+  --nav-item-color-active: #f8fafc;
+  --nav-item-background-hover: rgba(var(--velora-accent-rgb), 0.12);
+  --nav-item-background-active: rgba(var(--velora-accent-rgb), 0.2);
+  --icon-color-hover: var(--text-accent);
+  --icon-color-focused: var(--text-accent);
+  --tag-color: var(--text-accent);
+  --tag-background: rgba(var(--velora-accent-rgb), 0.15);
+  --tag-background-hover: rgba(var(--velora-accent-rgb), 0.22);
+  --graph-line: rgba(255, 255, 255, 0.14);
+  --graph-node: #b6c2d4;
+  --graph-node-focused: var(--text-accent);
+  --graph-node-unresolved: #8190a6;
+  --divider-color-hover: rgba(var(--velora-accent-rgb), 0.34);
+  --modal-background: rgba(var(--velora-dark-surface-rgb), 0.92);
+  --velora-background-image-current: var(--velora-dark-background-image);
+  background:
+    radial-gradient(circle at 72% 18%, rgba(var(--velora-warm-rgb), 0.18) 0, transparent 34%),
+    radial-gradient(circle at 74% 78%, rgba(var(--velora-accent-rgb), 0.26) 0, transparent 46%),
+    linear-gradient(180deg, var(--velora-bg-start) 0%, var(--velora-bg-mid) 52%, var(--velora-bg-end) 100%);
+}
+
+.theme-light body,
+body.theme-light {
+  --velora-background-image-current: var(--velora-light-background-image);
+  --background-primary: color-mix(in srgb, var(--velora-bg-start) 78%, var(--velora-bg-mid));
+  --background-primary-alt: var(--velora-bg-mid);
+  --background-secondary: rgba(var(--velora-surface-rgb), 0.58);
+  --background-secondary-alt: rgba(var(--velora-surface-rgb), 0.82);
+  --background-modifier-hover: rgba(var(--velora-accent-rgb), 0.08);
+  --background-modifier-active-hover: rgba(var(--velora-accent-rgb), 0.13);
+  --background-modifier-cover: rgba(var(--velora-surface-rgb), 0.72);
+  --background-modifier-border: rgba(var(--velora-shadow-rgb), 0.08);
+  --background-modifier-border-hover: rgba(var(--velora-accent-rgb), 0.28);
+  --background-modifier-form-field: rgba(var(--velora-surface-rgb), 0.82);
+  --background-modifier-form-field-highlighted: rgba(var(--velora-surface-rgb), 0.94);
+  --text-normal: var(--velora-ink);
+  --text-muted: var(--velora-muted-color);
+  --text-faint: var(--velora-faint-color);
+  --text-accent: var(--velora-blue);
+  --text-accent-hover: color-mix(in srgb, var(--velora-blue) 78%, black);
+  --interactive-normal: rgba(var(--velora-surface-rgb), 0.75);
+  --interactive-hover: rgba(var(--velora-surface-rgb), 0.92);
+  --interactive-accent: var(--velora-blue);
+  --interactive-accent-hover: color-mix(in srgb, var(--velora-blue) 86%, black);
+  --divider-color: rgba(var(--velora-shadow-rgb), 0.07);
+  --divider-color-hover: rgba(var(--velora-accent-rgb), 0.28);
+  --modal-background: rgba(var(--velora-surface-rgb), 0.9);
+  --prompt-border-color: rgba(var(--velora-surface-rgb), 0.72);
+}
+
+body.theme-light.velora-palette-aurora {
+  background:
+    radial-gradient(ellipse at 69% 13%, rgba(var(--velora-warm-rgb), 0.88) 0, rgba(var(--velora-warm-rgb), 0.42) 18%, transparent 43%),
+    radial-gradient(ellipse at 18% 88%, rgba(var(--velora-sky-rgb), 0.76) 0, rgba(var(--velora-sky-rgb), 0.34) 30%, transparent 58%),
+    radial-gradient(ellipse at 88% 82%, rgba(var(--velora-accent-rgb), 0.3) 0, transparent 50%),
+    linear-gradient(155deg, var(--velora-bg-start) 4%, var(--velora-bg-mid) 48%, var(--velora-bg-end) 100%);
+  background-size: 145% 145%, 138% 138%, 145% 145%, 100% 100%;
+  background-position: 58% 10%, 10% 92%, 94% 86%, center;
+}
+
+body.theme-dark.velora-palette-aurora {
+  background:
+    radial-gradient(ellipse at 70% 12%, rgba(var(--velora-warm-rgb), 0.22) 0, rgba(var(--velora-warm-rgb), 0.08) 22%, transparent 44%),
+    radial-gradient(ellipse at 14% 88%, rgba(var(--velora-sky-rgb), 0.2) 0, transparent 54%),
+    radial-gradient(ellipse at 88% 78%, rgba(var(--velora-accent-rgb), 0.28) 0, transparent 50%),
+    linear-gradient(155deg, var(--velora-dark-bg-start) 4%, var(--velora-dark-bg-mid) 48%, var(--velora-dark-bg-end) 100%);
+  background-size: 145% 145%, 138% 138%, 145% 145%, 100% 100%;
+  background-position: 58% 10%, 10% 92%, 94% 86%, center;
+}
+
+body.velora-palette-aurora .nav-file-title.is-active {
+  background: linear-gradient(110deg, rgba(var(--velora-accent-rgb), 0.17), rgba(var(--velora-warm-rgb), 0.3));
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -24%;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform, opacity;
+  background:
+    radial-gradient(ellipse 58% 48% at 16% 72%, rgba(var(--velora-sky-rgb), 0.9) 0, rgba(var(--velora-sky-rgb), 0.26) 42%, transparent 72%),
+    radial-gradient(ellipse 52% 46% at 78% 20%, rgba(var(--velora-warm-rgb), 0.92) 0, rgba(var(--velora-warm-rgb), 0.28) 40%, transparent 70%),
+    radial-gradient(ellipse 46% 56% at 84% 82%, rgba(var(--velora-accent-rgb), 0.58) 0, rgba(var(--velora-accent-rgb), 0.16) 44%, transparent 72%),
+    conic-gradient(from 138deg at 52% 48%, transparent 0 10%, rgba(var(--velora-sky-rgb), 0.28) 18%, transparent 31%, rgba(var(--velora-warm-rgb), 0.3) 46%, transparent 60%, rgba(var(--velora-accent-rgb), 0.24) 76%, transparent 92%);
+  background-size: 138% 132%, 142% 138%, 136% 144%, 126% 126%;
+  background-position: 8% 82%, 88% 10%, 92% 88%, 50% 50%;
+  background-repeat: no-repeat;
+  opacity: var(--velora-gradient-intensity);
+  filter: blur(28px) saturate(1.2) contrast(1.02);
+  transform: translate3d(-3%, -2%, 0) rotate(-2deg) scale(1.05);
+  animation: velora-gradient-liquid var(--velora-gradient-duration) cubic-bezier(0.45, 0.05, 0.2, 1) infinite alternate;
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes velora-gradient-liquid {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(-2deg) scale(1.05);
+    opacity: calc(var(--velora-gradient-intensity) * 0.84);
+  }
+
+  28% {
+    transform: translate3d(3%, -1%, 0) rotate(1.5deg) scale(1.1);
+    opacity: var(--velora-gradient-intensity);
+  }
+
+  62% {
+    transform: translate3d(1%, 4%, 0) rotate(3deg) scale(1.08);
+    opacity: calc(var(--velora-gradient-intensity) * 0.92);
+  }
+
+  100% {
+    transform: translate3d(-4%, 3%, 0) rotate(-1deg) scale(1.12);
+    opacity: var(--velora-gradient-intensity);
+  }
+}
+
+body.velora-reduce-motion::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none !important;
+    content: none;
+  }
+}
+
+body.velora-font-sans {
+  --font-interface-theme: "Neue Montreal", "Inter", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-text-theme: "Neue Montreal", "Inter", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+}
+
+body.velora-font-readable {
+  --font-interface-theme: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  --font-text-theme: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+}
+
+body.velora-font-serif {
+  --font-interface-theme: "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
+  --font-text-theme: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+}
+
+body.velora-density-compact .workspace-tab-header-container {
+  height: calc(var(--velora-tab-height) + 14px);
+  padding-block: 6px 3px;
+}
+
+body.velora-density-compact .view-header {
+  height: 48px;
+}
+
+body.velora-density-compact .nav-header {
+  padding: 8px 10px 6px;
+}
+
+body.velora-density-compact .nav-folder-title,
+body.velora-density-compact .nav-file-title {
+  margin-block: 1px;
+  padding: 4px 8px;
+}
+
+body.velora-reduce-motion *,
+body.velora-reduce-motion *::before,
+body.velora-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0s !important;
+}
+
+body.velora-hide-status-bar .status-bar {
+  display: none !important;
+}
+
+body :focus-visible {
+  outline-width: var(--velora-focus-ring-width);
+}
+
+.workspace-tab-header.is-active {
+  border-color: color-mix(in srgb, var(--velora-blue) 22%, transparent);
+}
+
+.side-dock-ribbon-action:hover,
+.clickable-icon:hover,
+.workspace-tab-header-new-tab:hover,
+.workspace-tab-header-tab-list:hover {
+  color: var(--velora-blue);
+}
+
+/* Optional background image. Disabled by default; enable in Style Settings. */
+body.velora-background-image::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--velora-background-image-current);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: var(--velora-background-opacity);
+  filter: blur(var(--velora-background-blur)) saturate(var(--velora-background-saturate)) brightness(var(--velora-background-brightness));
+}
+
+body.velora-background-image .app-container,
+body.velora-background-image .titlebar,
+body.velora-background-image .status-bar {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pretty Note style is now the default note surface for this theme. */
+.markdown-source-view.mod-cm6 .cm-scroller,
+.markdown-preview-view {
+  padding: var(--velora-note-vertical-padding) clamp(24px, 5vw, 70px);
+}
+
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-content {
+  font-size: var(--velora-note-font-size);
+  line-height: var(--velora-note-line-height);
+}
+
+.markdown-preview-view .markdown-preview-sizer {
+  max-width: var(--velora-note-width);
+  margin-inline: auto;
+}
+
+.markdown-source-view.mod-cm6 .cm-contentContainer,
+.markdown-source-view.mod-cm6 .cm-content {
+  width: auto;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.markdown-preview-view h1 {
+  margin: 0.55em 0 1em;
+  padding-bottom: 0.38em;
+  color: var(--text-normal);
+  font-size: var(--velora-h1-font-size);
+  font-weight: 760;
+  line-height: 1.16;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--velora-blue), rgba(var(--velora-accent-rgb), 0.24), transparent) 1;
+}
+
+body.velora-palette-pretty-note .markdown-preview-view h1,
+body.velora-palette-pretty-note .markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--velora-accent-rgb), 0.13),
+    rgba(var(--velora-warm-rgb), 0.2) 62%,
+    transparent
+  );
+  border-radius: 6px 6px 0 0;
+}
+
+body.velora-palette-pretty-note .markdown-preview-view h1 {
+  padding: 0.28em 0.38em 0.38em;
+}
+
+.markdown-preview-view h1::before {
+  content: "";
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.34em;
+  vertical-align: -0.04em;
+  border-radius: 0.28em;
+  background:
+    linear-gradient(135deg, transparent 42%, var(--velora-blue) 43% 56%, transparent 57%),
+    linear-gradient(135deg, rgba(var(--velora-accent-rgb), 0.15), rgba(var(--velora-accent-rgb), 0.04));
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.2);
+  box-shadow: inset 0 0 0 1px rgba(var(--velora-surface-rgb), 0.72);
+}
+
+.markdown-preview-view h1::after,
+.markdown-source-view.mod-cm6 .HyperMD-header-1::before,
+.markdown-source-view.mod-cm6 .HyperMD-header-1::after {
+  content: "" !important;
+  margin: 0;
+}
+
+.markdown-preview-view h2 {
+  position: relative;
+  margin: 1.25em 0 0.72em;
+  padding: 0.82em 1.05em 0.72em 2.72em;
+  color: var(--text-normal);
+  font-size: var(--velora-h2-font-size);
+  font-weight: 760;
+  line-height: 1.25;
+  background: var(--velora-section-surface);
+  border: 1px solid var(--velora-section-border);
+  border-radius: var(--velora-note-radius);
+  box-shadow: 0 14px 34px rgba(var(--velora-shadow-rgb), 0.065);
+  backdrop-filter: blur(16px) saturate(1.16);
+}
+
+.workspace-leaf-content.is-read-mode .markdown-preview-view h2 {
+  backdrop-filter: none;
+}
+
+.markdown-preview-view h2::before {
+  content: "";
+  position: absolute;
+  left: 1.05em;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0 18%, rgba(var(--velora-accent-rgb), 0.72) 19% 58%, var(--velora-blue) 59% 100%);
+  box-shadow: 0 0 0 4px rgba(var(--velora-accent-rgb), 0.1);
+}
+
+.markdown-preview-view h2::after {
+  content: "";
+  position: absolute;
+  left: 1.05em;
+  right: 1.05em;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--velora-blue), rgba(var(--velora-accent-rgb), 0.2), transparent);
+}
+
+.markdown-preview-view .markdown-preview-section > div.el-h2 {
+  margin-top: 1.65rem;
+}
+
+.markdown-preview-view .markdown-preview-section > div.el-h2 > h2 {
+  margin-bottom: 0.72rem;
+}
+
+/* Short H2 sections are framed block-by-block without wrapping or moving Markdown nodes. */
+.markdown-preview-view div.el-h2.velora-h2-card-block > h2 {
+  margin-bottom: 0;
+  border-bottom: 0;
+  border-radius: var(--velora-note-radius) var(--velora-note-radius) 0 0;
+}
+
+.markdown-preview-view div.velora-h2-card-block:not(.el-h2) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1.28rem;
+  padding-right: 1.28rem;
+  background: var(--velora-section-surface);
+  border-left: 1px solid var(--velora-section-border);
+  border-right: 1px solid var(--velora-section-border);
+  border-radius: 0;
+}
+
+.markdown-preview-view div.velora-h2-card-block:is(
+  .el-h3,
+  .el-h4,
+  .el-p,
+  .el-ul,
+  .el-ol,
+  .el-blockquote,
+  .el-hr
+) {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.markdown-preview-view div.velora-h2-card-block.is-velora-card-first-content {
+  padding-top: 1.12rem;
+}
+
+.markdown-preview-view div.velora-h2-card-block.is-velora-card-end:not(.el-h2),
+.markdown-preview-view div.velora-h2-card-block:not(.el-h2):has(+ div.mod-footer) {
+  padding-bottom: 1.12rem;
+  border-bottom: 1px solid var(--velora-section-border);
+  border-radius: 0 0 var(--velora-note-radius) var(--velora-note-radius);
+  box-shadow: 0 16px 42px rgba(var(--velora-shadow-rgb), 0.045);
+}
+
+.markdown-preview-view div.el-h2.velora-h2-card-block.is-velora-card-end > h2 {
+  margin-bottom: 0.72rem;
+  border-bottom: 1px solid var(--velora-section-border);
+  border-radius: var(--velora-note-radius);
+}
+
+.markdown-preview-view div.velora-h2-long-block {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.markdown-preview-view .markdown-preview-section > div.mod-footer {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.markdown-preview-view h3 {
+  margin: 0.78em 0 0.42em;
+  color: var(--text-normal);
+  font-size: var(--velora-h3-font-size);
+  font-weight: 740;
+}
+
+.markdown-preview-view h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 0.58em;
+  vertical-align: 0.09em;
+  border-radius: 999px;
+  background: var(--velora-blue);
+  box-shadow: 0 0 0 3px rgba(var(--velora-accent-rgb), 0.11);
+}
+
+.markdown-preview-view strong {
+  color: var(--velora-note-emphasis);
+  font-weight: 760;
+}
+
+.markdown-preview-view blockquote {
+  position: relative;
+  margin: 0.08em 0;
+  padding: 0.16em 0.78em 0.16em 0.86em;
+  color: var(--text-muted);
+  font-size: 0.96em;
+  line-height: 1.5;
+  background: linear-gradient(90deg, rgba(var(--velora-accent-rgb), 0.07) 0, rgba(var(--velora-accent-rgb), 0.025) 7rem, transparent 64%);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.markdown-preview-view blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.24em;
+  bottom: 0.24em;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.38);
+}
+
+.markdown-preview-view blockquote p {
+  margin: 0;
+}
+
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  margin: 0.48em 0;
+  padding: 0;
+}
+
+.markdown-preview-view ul {
+  list-style: none;
+}
+
+.markdown-preview-view ol {
+  padding-left: 1.35em;
+}
+
+.markdown-preview-view li {
+  position: relative;
+  margin: 0.34em 0;
+  padding-left: 1.15em;
+}
+
+.markdown-preview-view ul > li::marker {
+  content: "";
+}
+
+.markdown-preview-view ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.86em;
+  width: 0.28em;
+  height: 0.28em;
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.34);
+  box-shadow: 0 0 0 2px rgba(var(--velora-accent-rgb), 0.055);
+}
+
+.markdown-preview-view li.task-list-item {
+  padding-left: 0.25em;
+}
+
+.markdown-preview-view li.task-list-item::before {
+  display: none;
+}
+
+.markdown-preview-view ul ul {
+  margin: 0.42em 0 0.65em;
+  padding-left: 1.05em;
+  border-left: 1px solid color-mix(in srgb, var(--text-muted) 16%, transparent);
+}
+
+.markdown-preview-view li > p {
+  margin: 0.15em 0;
+}
+
+.markdown-preview-view table {
+  width: 100%;
+  margin: 1em 0;
+  overflow: hidden;
+  background: var(--velora-section-surface);
+  border: 1px solid var(--velora-section-border);
+  border-radius: calc(var(--velora-note-radius) - 4px);
+  box-shadow: 0 10px 28px rgba(var(--velora-shadow-rgb), 0.05);
+}
+
+.markdown-preview-view th {
+  background: var(--velora-note-soft);
+  font-weight: 720;
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+  padding: 0.75em 0.9em;
+  border-color: color-mix(in srgb, var(--text-muted) 18%, transparent);
+}
+
+.markdown-preview-view code,
+.markdown-source-view.mod-cm6 .cm-inline-code {
+  color: var(--velora-blue);
+  background: rgba(var(--velora-accent-rgb), 0.1);
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.12);
+  border-radius: 7px;
+  padding: 0.12em 0.34em;
+}
+
+.markdown-preview-view pre {
+  background: color-mix(in srgb, var(--velora-ink) 92%, white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: calc(var(--velora-note-radius) - 4px);
+  box-shadow: 0 14px 34px rgba(var(--velora-shadow-rgb), 0.14);
+}
+
+.markdown-preview-view pre code {
+  color: #f8fbff;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-preview-view a {
+  color: var(--text-normal);
+  font-weight: 640;
+  text-decoration-line: underline;
+  text-decoration-color: rgba(var(--velora-accent-rgb), 0.34);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  transition: color 160ms ease, text-decoration-color 160ms ease, background-color 160ms ease;
+}
+
+.markdown-preview-view a:hover {
+  color: var(--velora-blue);
+  background: rgba(var(--velora-accent-rgb), 0.08);
+  text-decoration-color: rgba(var(--velora-accent-rgb), 0.7);
+}
+
+.markdown-preview-view mark {
+  color: color-mix(in srgb, var(--velora-ink) 86%, var(--velora-cream));
+  background: linear-gradient(180deg, transparent 8%, var(--velora-highlight) 8%);
+  border-bottom: 1px solid rgba(var(--velora-warm-rgb), 0.48);
+  border-radius: 3px;
+  padding: 0 0.12em;
+}
+
+.markdown-preview-view hr {
+  border: 0;
+  width: min(18rem, 46%);
+  height: 1px;
+  margin: 0.65rem auto;
+  background: linear-gradient(90deg, transparent, rgba(var(--velora-accent-rgb), 0.34), transparent);
+}
+
+.markdown-preview-view .callout {
+  --callout-color: var(--velora-accent-rgb);
+  background:
+    linear-gradient(180deg, rgba(var(--callout-color), 0.09), rgba(var(--velora-surface-rgb), 0.82) 58%),
+    var(--velora-section-surface);
+  border: 1px solid rgba(var(--callout-color), 0.22);
+  border-left: 4px solid rgba(var(--callout-color), 0.5);
+  border-radius: calc(var(--velora-note-radius) - 4px);
+  box-shadow: 0 10px 30px rgba(var(--velora-shadow-rgb), 0.055);
+}
+
+.theme-dark .markdown-preview-view .callout {
+  background:
+    linear-gradient(180deg, rgba(var(--callout-color), 0.14), rgba(15, 23, 42, 0.78) 58%),
+    var(--velora-section-surface);
+}
+
+.markdown-preview-view .callout-title {
+  color: rgb(var(--callout-color));
+  font-weight: 760;
+}
+
+body.velora-palette-pretty-note .callout[data-callout="note"],
+body.velora-palette-pretty-note .callout[data-callout="info"],
+body.velora-palette-pretty-note .callout[data-callout="todo"] {
+  --callout-color: var(--velora-accent-rgb) !important;
+}
+
+.markdown-preview-view .callout[data-callout="info"],
+.markdown-preview-view .callout[data-callout="todo"] {
+  --callout-color: 63, 116, 184;
+}
+
+.markdown-preview-view .callout[data-callout="tip"],
+.markdown-preview-view .callout[data-callout="hint"],
+.markdown-preview-view .callout[data-callout="important"],
+.markdown-preview-view .callout[data-callout="success"],
+.markdown-preview-view .callout[data-callout="check"],
+.markdown-preview-view .callout[data-callout="done"] {
+  --callout-color: 58, 139, 106;
+}
+
+.markdown-preview-view .callout[data-callout="question"],
+.markdown-preview-view .callout[data-callout="help"],
+.markdown-preview-view .callout[data-callout="faq"],
+.markdown-preview-view .callout[data-callout="warning"],
+.markdown-preview-view .callout[data-callout="caution"],
+.markdown-preview-view .callout[data-callout="attention"] {
+  --callout-color: 184, 128, 38;
+}
+
+.markdown-preview-view .callout[data-callout="failure"],
+.markdown-preview-view .callout[data-callout="fail"],
+.markdown-preview-view .callout[data-callout="missing"],
+.markdown-preview-view .callout[data-callout="danger"],
+.markdown-preview-view .callout[data-callout="error"],
+.markdown-preview-view .callout[data-callout="bug"] {
+  --callout-color: 177, 63, 72;
+}
+
+body.velora-note-align-left .markdown-preview-view p,
+body.velora-note-align-left .markdown-preview-view li {
+  text-align: left;
+}
+
+body.velora-note-align-justify .markdown-preview-view p,
+body.velora-note-align-justify .markdown-preview-view li {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+body.velora-note-align-center .markdown-preview-view p,
+body.velora-note-align-center .markdown-preview-view li {
+  text-align: center;
+}
+
+.markdown-source-view.mod-cm6 .cm-line {
+  text-align: left;
+}
+
+body.velora-heading-align-center .markdown-preview-view h1,
+body.velora-heading-align-center .markdown-preview-view h2,
+body.velora-heading-align-center .markdown-preview-view h3,
+body.velora-heading-align-center .HyperMD-header {
+  text-align: center;
+}
+
+body.velora-heading-align-center .markdown-preview-view h2 {
+  padding-left: 1.05em;
+}
+
+body.velora-heading-align-center .markdown-preview-view h2::before {
+  display: none;
+}
+
+/* Rainbow Tree, adapted from the snippet by vran. */
+.workspace-leaf-content[data-type="file-explorer"] {
+  --velora-rainbow-bg-opacity: var(--velora-rainbow-folder-bg-opacity, 0.18);
+  --velora-rainbow-text-opacity: var(--velora-rainbow-folder-text-opacity, 0.85);
+  --velora-rainbow-hover-opacity: var(--velora-rainbow-folder-hover-opacity, 0.22);
+  --velora-rainbow-child-bg-opacity: var(--velora-rainbow-sub-bg-opacity, 0.14);
+  --velora-rainbow-child-text-opacity: var(--velora-rainbow-sub-text-opacity, 0.8);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 1) {
+  --velora-rainbow-folder-rgb: var(--color-red-rgb, 220, 70, 90);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 2) {
+  --velora-rainbow-folder-rgb: var(--color-blue-rgb, 66, 133, 244);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 3) {
+  --velora-rainbow-folder-rgb: var(--color-green-rgb, 52, 168, 83);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 4) {
+  --velora-rainbow-folder-rgb: var(--color-orange-rgb, 245, 159, 0);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 5) {
+  --velora-rainbow-folder-rgb: var(--color-purple-rgb, 126, 87, 194);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 6) {
+  --velora-rainbow-folder-rgb: var(--color-cyan-rgb, 0, 172, 193);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n) {
+  --velora-rainbow-folder-rgb: var(--color-pink-rgb, 216, 27, 96);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .nav-folder-title {
+  background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-bg-opacity));
+  color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-text-opacity));
+  --nav-collapse-icon-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-text-opacity));
+  --icon-color: var(--nav-collapse-icon-color);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .nav-folder-title:hover {
+  background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-hover-opacity));
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .tree-item-children .nav-folder-title {
+  background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-bg-opacity));
+  color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-text-opacity));
+  --nav-collapse-icon-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-text-opacity));
+  --icon-color: var(--nav-collapse-icon-color);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .tree-item-children .nav-folder-title:hover {
+  background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-hover-opacity));
+}
+
+/* Optional floating left sidebar. Disabled by default; enable in Style Settings. */
+body:not(.is-mobile).velora-floating-sidebar .sidebar-toggle-button.mod-left {
+  display: none !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split {
+  position: fixed !important;
+  display: flex !important;
+  visibility: visible !important;
+  z-index: 40 !important;
+  box-sizing: border-box;
+  width: var(--velora-sidebar-width) !important;
+  height: var(--velora-sidebar-height) !important;
+  min-width: 220px;
+  max-width: min(70vw, 720px);
+  min-height: 320px;
+  max-height: 96vh;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin-block: auto !important;
+  align-self: center;
+  overflow: visible !important;
+  border-radius: var(--velora-sidebar-radius) !important;
+  background:
+    linear-gradient(180deg, rgba(var(--velora-surface-rgb), var(--velora-sidebar-opacity)), rgba(var(--velora-surface-rgb), var(--velora-sidebar-opacity))) !important;
+  border: 1px solid var(--velora-border) !important;
+  box-shadow: 0 18px 54px rgba(var(--velora-shadow-rgb), 0.18) !important;
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.42s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s !important;
+  transition-delay: var(--velora-sidebar-retract-delay) !important;
+}
+
+.theme-dark body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split,
+body.theme-dark:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split {
+  background:
+    linear-gradient(180deg, rgba(var(--velora-dark-surface-rgb), var(--velora-sidebar-opacity)), rgba(var(--velora-dark-surface-rgb), var(--velora-sidebar-opacity))) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:hover,
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:has(.is-being-renamed),
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:has(.has-active-menu) {
+  transform: translateX(var(--velora-sidebar-left-margin)) !important;
+  transition-delay: 0s !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split::before {
+  content: "";
+  position: absolute;
+  z-index: 41;
+  right: calc(var(--velora-sidebar-handle-width) * -1);
+  top: 50%;
+  width: var(--velora-sidebar-handle-width);
+  height: var(--velora-sidebar-handle-height);
+  transform: translateY(-50%);
+  border-radius: 0 10px 10px 0;
+  background: linear-gradient(180deg, var(--velora-blue), color-mix(in srgb, var(--velora-blue) 74%, #000));
+  box-shadow: 2px 0 14px rgba(var(--velora-accent-rgb), 0.26);
+  opacity: 0.86;
+  cursor: pointer;
+  transition: opacity 0.24s ease, width 0.24s ease;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:hover::before,
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:has(.is-being-renamed)::before,
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split:has(.has-active-menu)::before {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40px 0 -40px -40px;
+  background: transparent;
+  pointer-events: auto;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split :is(
+  .workspace-tabs,
+  .workspace-leaf,
+  .workspace-leaf-content,
+  .nav-files-container
+) {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split :is(
+  .workspace-sidedock-vault-profile,
+  .workspace-drawer-vault-switcher,
+  .workspace-drawer-vault-actions
+) {
+  border-bottom-left-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
+  border-bottom-right-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
+  overflow: hidden !important;
+  background-clip: padding-box !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod-left-split :is(
+  .workspace-sidedock-vault-profile,
+  .workspace-drawer-vault-actions
+) > :last-child {
+  border-bottom-left-radius: inherit !important;
+  border-bottom-right-radius: inherit !important;
+}
+
+/* Optional liquid-glass sidebars. Disabled by default. */
+body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
+  border-color: rgba(var(--velora-accent-rgb), 0.2);
+  background:
+    radial-gradient(
+      ellipse 115% 72% at 8% 6%,
+      rgba(var(--velora-sky-rgb), var(--velora-sidebar-liquid-intensity)) 0%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.26)) 38%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 96% 82% at 94% 88%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.74)) 0%,
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse 82% 68% at 72% 18%,
+      rgba(var(--velora-accent-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.5)) 0%,
+      transparent 62%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.86)),
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.58))
+    );
+  background-size: 168% 152%, 154% 164%, 172% 158%, 100% 100%;
+  background-position: 4% 8%, 96% 92%, 78% 12%, center;
+  background-repeat: no-repeat;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.78),
+    inset 0 0 34px rgba(var(--velora-accent-rgb), 0.055),
+    0 16px 42px rgba(var(--velora-shadow-rgb), 0.1);
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.34) contrast(1.03);
+  animation: velora-sidebar-liquid-glass var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
+}
+
+.theme-dark body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
+body.theme-dark.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
+  border-color: rgba(255, 255, 255, 0.13);
+  background:
+    radial-gradient(
+      ellipse 115% 72% at 8% 6%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.58)) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 96% 82% at 94% 88%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.34)) 0%,
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse 82% 68% at 72% 18%,
+      rgba(var(--velora-accent-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.72)) 0%,
+      transparent 62%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.94)),
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.68))
+    );
+  background-size: 168% 152%, 154% 164%, 172% 158%, 100% 100%;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 38px rgba(var(--velora-accent-rgb), 0.08),
+    0 18px 46px rgba(0, 0, 0, 0.24);
+}
+
+body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  border-top: 1px solid rgba(var(--velora-accent-rgb), 0.14);
+  background:
+    radial-gradient(
+      ellipse 118% 120% at 4% 0%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.72)) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 108% 120% at 96% 100%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.56)) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.78)),
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.54))
+    ) !important;
+  background-size: 170% 180%, 160% 180%, 100% 100% !important;
+  background-position: 8% 8%, 94% 92%, center !important;
+  background-repeat: no-repeat !important;
+  box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.74);
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.28);
+}
+
+.theme-dark body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile,
+body.theme-dark:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(
+      ellipse 118% 120% at 4% 0%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.38)) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 108% 120% at 96% 100%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.24)) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.92)),
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.66))
+    ) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile :is(
+  .workspace-drawer-vault-switcher,
+  .clickable-icon
+) {
+  border-radius: 999px;
+  background: transparent;
+}
+
+body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile :is(
+  .workspace-drawer-vault-switcher,
+  .clickable-icon
+):hover,
+body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu {
+  color: var(--velora-blue);
+  background: rgba(var(--velora-accent-rgb), 0.1);
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+  border-color: rgba(var(--velora-accent-rgb), 0.24) !important;
+  background:
+    radial-gradient(
+      ellipse 118% 76% at 6% 4%,
+      rgba(var(--velora-sky-rgb), var(--velora-sidebar-liquid-intensity)) 0%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.24)) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 100% 86% at 96% 92%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.72)) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 86% 72% at 76% 16%,
+      rgba(var(--velora-accent-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.5)) 0%,
+      transparent 64%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.88)),
+      rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.6))
+    ) !important;
+  background-size: 168% 152%, 154% 164%, 172% 158%, 100% 100% !important;
+  background-position: 4% 8%, 96% 92%, 78% 12%, center !important;
+  background-repeat: no-repeat !important;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.82),
+    inset 0 0 42px rgba(var(--velora-accent-rgb), 0.065),
+    0 20px 58px rgba(var(--velora-shadow-rgb), 0.2) !important;
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.38) contrast(1.03) !important;
+}
+
+.theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background:
+    radial-gradient(
+      ellipse 118% 76% at 6% 4%,
+      rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.58)) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 100% 86% at 96% 92%,
+      rgba(var(--velora-warm-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.34)) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 86% 72% at 76% 16%,
+      rgba(var(--velora-accent-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.72)) 0%,
+      transparent 64%
+    ),
+    linear-gradient(
+      148deg,
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.94)),
+      rgba(var(--velora-dark-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.7))
+    ) !important;
+  background-size: 168% 152%, 154% 164%, 172% 158%, 100% 100% !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 0 44px rgba(var(--velora-accent-rgb), 0.1),
+    0 22px 62px rgba(0, 0, 0, 0.32) !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+  border-top: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile,
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+  border-top: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split :is(
+  .workspace-tab-container,
+  .workspace-leaf,
+  .workspace-leaf-content,
+  .nav-files-container
+) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  animation: none !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  min-height: 54px;
+  gap: 8px;
+  padding: 8px 18px 10px 10px !important;
+  overflow: hidden !important;
+  border-radius: 0 0 max(8px, calc(var(--velora-sidebar-radius) - 1px)) max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before {
+  content: "";
+  position: absolute;
+  inset: -170% -34%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 48% 40% at 18% 70%, rgba(var(--velora-sky-rgb), 0.9) 0%, transparent 72%),
+    radial-gradient(ellipse 44% 38% at 82% 18%, rgba(var(--velora-warm-rgb), 0.82) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 48% at 80% 84%, rgba(var(--velora-accent-rgb), 0.68) 0%, transparent 72%);
+  opacity: var(--velora-sidebar-liquid-intensity);
+  filter: blur(14px) saturate(1.22);
+  transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1.04);
+  transform-origin: center;
+  animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile > * {
+  position: relative;
+  z-index: 1;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+  box-sizing: border-box;
+  height: 36px;
+  min-height: 36px;
+  margin: 0;
+  padding: 0 12px;
+  overflow: hidden !important;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.16);
+  border-radius: 999px !important;
+  background: rgba(var(--velora-surface-rgb), 0.24);
+  background-clip: padding-box !important;
+  box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.58);
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
+  gap: 4px;
+  overflow: visible !important;
+  border-radius: 0 !important;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
+  box-sizing: border-box;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  overflow: visible !important;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.12);
+  border-radius: 999px !important;
+  background: rgba(var(--velora-surface-rgb), 0.18);
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:hover,
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu,
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover {
+  color: var(--velora-blue);
+  border-color: rgba(var(--velora-accent-rgb), 0.28);
+  background: rgba(var(--velora-accent-rgb), 0.11);
+  box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.52);
+}
+
+.theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon,
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden !important;
+  border-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) max(8px, calc(var(--velora-sidebar-radius) - 1px)) 0 0;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
+  content: "";
+  position: absolute;
+  inset: -34%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 48% 40% at 18% 70%, rgba(var(--velora-sky-rgb), 0.9) 0%, transparent 72%),
+    radial-gradient(ellipse 44% 38% at 82% 18%, rgba(var(--velora-warm-rgb), 0.82) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 48% at 80% 84%, rgba(var(--velora-accent-rgb), 0.68) 0%, transparent 72%);
+  opacity: var(--velora-sidebar-liquid-intensity);
+  filter: blur(18px) saturate(1.22);
+  transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1.04);
+  transform-origin: center;
+  animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
+}
+
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes velora-sidebar-liquid-glass {
+  0% {
+    background-position: 4% 8%, 96% 92%, 78% 12%, center;
+  }
+
+  34% {
+    background-position: 42% 2%, 70% 70%, 28% 34%, center;
+  }
+
+  68% {
+    background-position: 12% 58%, 98% 38%, 68% 84%, center;
+  }
+
+  100% {
+    background-position: 54% 82%, 48% 12%, 14% 54%, center;
+  }
+}
+
+@keyframes velora-sidebar-liquid-layer {
+  0% {
+    transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1.04);
+    opacity: calc(var(--velora-sidebar-liquid-intensity) * 0.84);
+  }
+
+  36% {
+    transform: translate3d(4%, -1%, 0) rotate(1deg) scale(1.1);
+    opacity: var(--velora-sidebar-liquid-intensity);
+  }
+
+  70% {
+    transform: translate3d(2%, 5%, 0) rotate(2.5deg) scale(1.07);
+    opacity: calc(var(--velora-sidebar-liquid-intensity) * 0.92);
+  }
+
+  100% {
+    transform: translate3d(-5%, 3%, 0) rotate(-1deg) scale(1.12);
+    opacity: var(--velora-sidebar-liquid-intensity);
+  }
+}
+
+body.velora-reduce-motion.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
+body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+  animation: none !important;
+}
+
+body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
+  animation: none !important;
+}
+
+body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
+  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+    animation: none !important;
+  }
+
+  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
+    animation: none !important;
+  }
+
+  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   Obsidian Bases: table, cards, list, toolbar, and menus
+   ============================================================ */
+
+:is(.workspace-leaf-content[data-type="bases"], .bases-embed, .block-language-base) {
+  --bases-header-height: 50px;
+  --bases-table-row-height: 38px;
+  --bases-table-font-size: var(--font-ui-small);
+  --bases-table-border-color: rgba(var(--velora-accent-rgb), 0.12);
+  --bases-table-header-background: rgba(var(--velora-surface-rgb), 0.56);
+  --bases-table-header-background-hover: rgba(var(--velora-accent-rgb), 0.1);
+  --bases-table-header-color: color-mix(in srgb, var(--text-muted) 78%, var(--velora-blue));
+  --bases-table-header-weight: 650;
+  --bases-table-row-background-hover: rgba(var(--velora-accent-rgb), 0.075);
+  --bases-table-cell-background-active: rgba(var(--velora-surface-rgb), 0.86);
+  --bases-table-cell-background-disabled: rgba(var(--velora-surface-rgb), 0.3);
+  --bases-table-cell-background-selected: rgba(var(--velora-accent-rgb), 0.12);
+  --bases-table-cell-radius-active: 10px;
+  --bases-table-cell-radius-focus: 10px;
+  --bases-table-cell-shadow-active: 0 0 0 2px rgba(var(--velora-accent-rgb), 0.24);
+  --bases-table-cell-shadow-focus: 0 0 0 2px rgba(var(--velora-accent-rgb), 0.46);
+  --bases-table-group-background: rgba(var(--velora-surface-rgb), 0.2);
+  --bases-table-summary-background: rgba(var(--velora-surface-rgb), 0.62);
+  --bases-table-summary-background-hover: rgba(var(--velora-accent-rgb), 0.1);
+  --bases-table-container-border-radius: 16px;
+  --bases-cards-radius: 16px;
+  --bases-cards-background: rgba(var(--velora-surface-rgb), 0.7);
+  --bases-cards-cover-background: rgba(var(--velora-accent-rgb), 0.08);
+  --bases-cards-container-background: transparent;
+  --bases-cards-shadow:
+    inset 0 0 0 1px rgba(var(--velora-surface-rgb), 0.72),
+    0 10px 26px rgba(var(--velora-shadow-rgb), 0.08);
+  --bases-cards-shadow-hover:
+    inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.28),
+    0 14px 32px rgba(var(--velora-accent-rgb), 0.13);
+  --bases-embed-border-color: rgba(var(--velora-accent-rgb), 0.16);
+  --bases-embed-border-radius: 16px;
+}
+
+.workspace-leaf-content[data-type="bases"] {
+  background: var(--velora-panel);
+  border: 1px solid var(--velora-border);
+  border-radius: var(--velora-panel-radius);
+  box-shadow: var(--velora-shadow);
+  overflow: hidden;
+  backdrop-filter: var(--velora-blur);
+}
+
+.workspace-leaf-content[data-type="bases"] > .view-content {
+  min-width: 0;
+  background: transparent;
+}
+
+.theme-dark .workspace-leaf-content[data-type="bases"] {
+  background: rgba(var(--velora-dark-surface-rgb), 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-dark :is(.workspace-leaf-content[data-type="bases"], .bases-embed, .block-language-base) {
+  --bases-table-border-color: rgba(255, 255, 255, 0.1);
+  --bases-table-header-background: rgba(255, 255, 255, 0.055);
+  --bases-table-header-background-hover: rgba(var(--velora-accent-rgb), 0.16);
+  --bases-table-row-background-hover: rgba(var(--velora-accent-rgb), 0.13);
+  --bases-table-cell-background-active: rgba(255, 255, 255, 0.08);
+  --bases-table-cell-background-disabled: rgba(255, 255, 255, 0.035);
+  --bases-table-cell-background-selected: rgba(var(--velora-accent-rgb), 0.2);
+  --bases-table-group-background: rgba(255, 255, 255, 0.025);
+  --bases-table-summary-background: rgba(255, 255, 255, 0.055);
+  --bases-cards-background: rgba(var(--velora-dark-surface-rgb), 0.78);
+  --bases-cards-cover-background: rgba(var(--velora-accent-rgb), 0.14);
+  --bases-cards-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 12px 28px rgba(0, 0, 0, 0.2);
+  --bases-cards-shadow-hover:
+    inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.38),
+    0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+/* Header and toolbar */
+.workspace-leaf-content[data-type="bases"] .bases-header {
+  box-sizing: border-box;
+  width: calc(100% - 24px);
+  margin: 10px 12px 8px;
+  padding-inline: 8px;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.13);
+  border-radius: 16px;
+  background: rgba(var(--velora-surface-rgb), 0.46);
+  box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.7);
+  backdrop-filter: blur(14px) saturate(1.15);
+}
+
+.theme-dark .workspace-leaf-content[data-type="bases"] .bases-header {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.bases-toolbar {
+  min-width: 0;
+  column-gap: 4px;
+}
+
+.bases-toolbar .bases-toolbar-result-count {
+  padding-inline: 4px;
+  color: var(--text-muted);
+}
+
+.bases-toolbar .bases-toolbar-item:not(.bases-toolbar-result-count) .text-icon-button {
+  min-height: 32px;
+  margin: 0;
+  padding-inline: 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.bases-toolbar .bases-toolbar-item:not(.bases-toolbar-result-count) .text-icon-button:hover,
+.bases-toolbar .bases-toolbar-item:not(.bases-toolbar-result-count) .text-icon-button.is-active {
+  color: var(--velora-blue);
+  border-color: rgba(var(--velora-accent-rgb), 0.18);
+  background: rgba(var(--velora-accent-rgb), 0.09);
+}
+
+.bases-toolbar .bases-toolbar-new-item-menu .text-icon-button {
+  color: color-mix(in srgb, var(--text-normal) 72%, var(--velora-blue));
+  background: rgba(var(--velora-accent-rgb), 0.07);
+}
+
+.bases-toolbar .toolbar-badge {
+  margin-inline-start: 2px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.09);
+}
+
+.workspace-leaf-content[data-type="bases"] .bases-search-row {
+  margin: 0 12px 8px;
+  padding: 4px 10px;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.14);
+  border-radius: 999px;
+  background: var(--velora-ui-field);
+}
+
+.workspace-leaf-content[data-type="bases"] .bases-search-row input {
+  min-height: 30px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Table view */
+.workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="table"] {
+  box-sizing: border-box;
+  width: calc(100% - 24px);
+  min-height: 0;
+  margin: 0 12px 12px;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.13);
+  border-radius: 16px;
+  background: rgba(var(--velora-surface-rgb), 0.27);
+  box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.56);
+}
+
+.theme-dark .workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="table"] {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.018);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.bases-table-container {
+  border-radius: inherit;
+  background: transparent;
+}
+
+.bases-thead .bases-tr,
+.bases-thead .bases-td {
+  background: var(--bases-table-header-background);
+  backdrop-filter: blur(10px) saturate(1.1);
+}
+
+.bases-table-header-label {
+  gap: 6px;
+  font-weight: var(--bases-table-header-weight);
+}
+
+.bases-table-header-icon,
+.bases-table-header-sort {
+  color: color-mix(in srgb, var(--text-muted) 72%, var(--velora-blue));
+}
+
+.bases-table-header-resizer:hover,
+.bases-table-header-resizer.is-active {
+  background: rgba(var(--velora-accent-rgb), 0.4);
+}
+
+.bases-tbody .bases-tr {
+  transition: background-color 140ms ease;
+}
+
+.bases-tbody .bases-tr:nth-child(even):not(:hover) {
+  background: rgba(var(--velora-surface-rgb), 0.16);
+}
+
+.theme-dark .bases-tbody .bases-tr:nth-child(even):not(:hover) {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.bases-table-container :is(
+  input[type="text"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="number"],
+  .multi-select-container
+) {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bases-table-container :is(
+  input[type="text"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="number"],
+  .multi-select-container
+):focus {
+  box-shadow: none;
+}
+
+.bases-table-container .add-column-button {
+  border-radius: 10px;
+  color: var(--text-muted);
+}
+
+.bases-table-container .add-column-button:hover {
+  color: var(--velora-blue);
+  background: rgba(var(--velora-accent-rgb), 0.09);
+}
+
+.bases-table-footer {
+  border-top: 1px solid rgba(var(--velora-accent-rgb), 0.1);
+  backdrop-filter: blur(12px) saturate(1.15);
+}
+
+.bases-rendered-value a {
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.bases-rendered-value a:hover {
+  text-decoration: underline;
+}
+
+:is(.bases-table-container, .bases-cards-item) .multi-select-pill {
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.16);
+  border-radius: 999px;
+  background: rgba(var(--velora-accent-rgb), 0.09);
+}
+
+/* Cards, lists, and groups */
+.workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="cards"] {
+  --bases-view-padding: 12px 12px 60px;
+}
+
+.bases-cards-item {
+  border: 0;
+  backdrop-filter: blur(14px) saturate(1.12);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+@media (hover: hover) {
+  .bases-cards-item:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.bases-cards-cover {
+  box-shadow: inset 0 -1px 0 rgba(var(--velora-accent-rgb), 0.12);
+}
+
+.bases-cards-property.mod-title {
+  color: var(--text-normal);
+  font-weight: 650;
+}
+
+.bases-cards-label {
+  color: color-mix(in srgb, var(--text-muted) 86%, var(--velora-blue));
+}
+
+.bases-list-item {
+  border-radius: 10px;
+  transition: background-color 140ms ease;
+}
+
+.bases-list-item:hover {
+  background: rgba(var(--velora-accent-rgb), 0.07);
+}
+
+.bases-list-separator {
+  color: rgba(var(--velora-accent-rgb), 0.52);
+}
+
+.bases-group-heading {
+  color: var(--text-normal);
+}
+
+.bases-group-heading .bases-group-property {
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--text-muted) 76%, var(--velora-blue));
+  background: rgba(var(--velora-accent-rgb), 0.08);
+}
+
+/* Bases popover menus and filter editor */
+.bases-toolbar-menu {
+  border: 1px solid var(--velora-border);
+  border-radius: 20px;
+  background: var(--velora-panel-strong);
+  box-shadow: var(--velora-shadow-soft);
+  backdrop-filter: blur(18px) saturate(1.18);
+  overflow: hidden;
+}
+
+.theme-dark .bases-toolbar-menu {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(var(--velora-dark-surface-rgb), 0.96);
+}
+
+.bases-toolbar-menu-container-header {
+  margin: 5px;
+  border-radius: 14px;
+  background: rgba(var(--velora-accent-rgb), 0.055);
+}
+
+.bases-toolbar-menu-item {
+  border-radius: 12px;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.bases-toolbar-menu-item:hover,
+.bases-toolbar-menu-item.mod-active {
+  color: var(--text-normal);
+  background: rgba(var(--velora-accent-rgb), 0.09);
+}
+
+.bases-toolbar-menu .bases-toolbar-section:not(:last-child) {
+  border-color: rgba(var(--velora-accent-rgb), 0.1);
+}
+
+.bases-toolbar-menu-container .search-input-container {
+  margin: 8px;
+  padding: 0 8px;
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.14);
+  border-radius: 999px;
+  background: var(--velora-ui-field);
+}
+
+.bases-toolbar-menu-container .search-input-container input[type="search"] {
+  min-height: 32px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bases-query-container .filter-group .filter-group {
+  border-color: rgba(var(--velora-accent-rgb), 0.13);
+  border-radius: 14px;
+  background: rgba(var(--velora-accent-rgb), 0.045);
+}
+
+.bases-query-container .filter-expression {
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.14);
+  border-radius: 14px;
+  background: var(--velora-ui-field);
+  box-shadow: inset 0 1px 0 var(--velora-border);
+  overflow: hidden;
+}
+
+.bases-query-container .filter-expression:focus-within {
+  border-color: rgba(var(--velora-accent-rgb), 0.38);
+  box-shadow: 0 0 0 var(--velora-focus-ring-width) rgba(var(--velora-accent-rgb), 0.12);
+}
+
+.bases-sort-property-container,
+.bases-groupby-property-container {
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.12);
+  border-radius: 12px;
+  background: rgba(var(--velora-accent-rgb), 0.045);
+  overflow: hidden;
+}
+
+body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bases-embed, .block-language-base) {
+  --bases-header-height: 44px;
+  --bases-table-row-height: 32px;
+  --bases-cards-line-height: 22px;
+}
+
+@media (min-width: 721px) and (max-width: 1100px),
+       (min-width: 721px) and (hover: none) and (pointer: coarse) {
+  .workspace-leaf-content[data-type="bases"] {
+    border-radius: min(var(--velora-panel-radius), 22px);
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-header {
+    width: calc(100% - 16px);
+    margin: 8px;
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="table"] {
+    width: calc(100% - 16px);
+    margin: 0 8px 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .workspace-leaf-content[data-type="bases"] {
+    --bases-header-height: 44px;
+    --bases-table-row-height: 36px;
+    border-radius: 14px;
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-header {
+    width: calc(100% - 12px);
+    margin: 6px;
+    padding-inline: 4px;
+    border-radius: 13px;
+  }
+
+  .bases-toolbar {
+    column-gap: 2px;
+  }
+
+  .bases-toolbar .bases-toolbar-item:not(.bases-toolbar-result-count) .text-icon-button {
+    min-width: 34px;
+    min-height: 34px;
+    padding-inline: 7px;
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-search-row {
+    margin: 0 6px 6px;
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="table"] {
+    width: calc(100% - 12px);
+    margin: 0 6px 6px;
+    border-radius: 12px;
+  }
+
+  .workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="cards"] {
+    --bases-view-padding: 8px 8px calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .is-phone .bases-toolbar-menu {
+    border-width: 1px 1px 0;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .is-phone .bases-toolbar-menu-container-header {
+    margin: 4px 6px;
+  }
+}
+
+/* ============================================================
+   Responsive devices: desktop, iPad/tablet, and phone
+   ============================================================ */
+
+@media (hover: none), (pointer: coarse) {
+  .side-dock-ribbon-action:hover,
+  .clickable-icon:hover,
+  .workspace-tab-header:hover,
+  .nav-folder-title:hover,
+  .nav-file-title:hover,
+  .setting-item-control > button:not(.clickable-icon):hover,
+  .modal-button-container > button:not(.clickable-icon):hover,
+  button.mod-cta:hover,
+  button.mod-warning:hover,
+  body.velora-plugin-style-unified button:not(.clickable-icon):hover {
+    transform: none;
+  }
+
+  body.is-mobile .sidebar-toggle-button.mod-left {
+    display: flex !important;
+  }
+}
+
+/* iPad portrait/landscape and other touch tablets. */
+@media (min-width: 721px) and (max-width: 1100px),
+       (min-width: 721px) and (hover: none) and (pointer: coarse) {
+  body.is-mobile {
+    --velora-workspace-gap: 8px;
+    --velora-glass-blur: 14px;
+    --velora-sidebar-blur: 14px;
+    --velora-gradient-duration: 26s;
+    --velora-gradient-intensity: 0.46;
+  }
+
+  .workspace-split.mod-root .workspace-leaf,
+  .mod-sidedock .workspace-leaf {
+    padding: 8px;
+  }
+
+  .workspace-leaf-content[data-type="markdown"],
+  .workspace-leaf-content[data-type="empty"],
+  .mod-sidedock .workspace-leaf-content {
+    border-radius: min(var(--velora-panel-radius), 22px);
+  }
+
+  .workspace-tab-header-container {
+    height: calc(var(--velora-tab-height) + 14px);
+    padding: 6px 10px 4px;
+  }
+
+  .workspace-split.mod-root .workspace-tab-header {
+    max-width: min(var(--velora-tab-max-width), 190px);
+  }
+
+  .workspace-tab-header-new-tab,
+  .workspace-tab-header-tab-list {
+    flex-basis: 32px;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .view-header {
+    height: 50px;
+    padding-inline: 12px;
+  }
+
+  .view-header .view-action {
+    flex: 0 0 36px;
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-scroller,
+  .markdown-preview-view {
+    padding: min(var(--velora-note-vertical-padding), 30px) 34px;
+  }
+
+  .modal,
+  .prompt {
+    width: min(720px, calc(100vw - 48px));
+    max-width: calc(100vw - 48px);
+    max-height: calc(100dvh - 48px);
+    border-radius: min(var(--velora-panel-radius), 22px);
+  }
+
+  .menu,
+  .suggestion-container,
+  .popover {
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* Phones and narrow split panes. */
+@media (max-width: 720px) {
+  body {
+    --velora-workspace-gap: 4px;
+    --velora-panel-radius: 16px;
+    --velora-tab-height: 28px;
+  }
+
+  body.is-mobile {
+    --velora-glass-blur: 10px;
+    --velora-sidebar-blur: 10px;
+    --velora-gradient-duration: 32s;
+    --velora-gradient-intensity: 0.32;
+  }
+
+  .workspace-split.mod-root .workspace-leaf,
+  .mod-sidedock .workspace-leaf {
+    padding: 4px;
+  }
+
+  .workspace-leaf-content[data-type="markdown"],
+  .workspace-leaf-content[data-type="empty"],
+  .mod-sidedock .workspace-leaf-content {
+    border-radius: 14px;
+  }
+
+  .workspace-tab-header-container,
+  body.velora-density-compact .workspace-tab-header-container {
+    height: 40px;
+    padding: 5px 8px 3px;
+    gap: 2px;
+  }
+
+  body.is-mobile .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+    padding-right: 8px;
+  }
+
+  .workspace-split.mod-root .workspace-tab-header {
+    max-width: min(var(--velora-tab-max-width), 154px);
+  }
+
+  .workspace-split.mod-root .workspace-tab-header-inner {
+    padding-inline: 9px 4px;
+  }
+
+  .workspace-tab-header-inner-title {
+    font-size: 13px;
+  }
+
+  .workspace-tab-header-new-tab,
+  .workspace-tab-header-tab-list {
+    flex-basis: 30px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .view-header,
+  body.velora-density-compact .view-header {
+    height: 46px;
+    padding-inline: 8px;
+  }
+
+  .view-header-title {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .view-header .view-action {
+    flex: 0 0 34px;
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-scroller,
+  .markdown-preview-view {
+    padding:
+      18px
+      max(16px, env(safe-area-inset-right, 0px))
+      calc(28px + env(safe-area-inset-bottom, 0px))
+      max(16px, env(safe-area-inset-left, 0px));
+  }
+
+  .markdown-preview-view,
+  .markdown-source-view.mod-cm6 .cm-content {
+    font-size: min(var(--velora-note-font-size), 16px);
+    line-height: min(var(--velora-note-line-height), 1.74);
+  }
+
+  .markdown-preview-view h1 {
+    font-size: min(var(--velora-h1-font-size), 28px);
+  }
+
+  .markdown-preview-view h2 {
+    padding: 0.82em 0.85em 0.72em 2.55em;
+    font-size: min(var(--velora-h2-font-size), 20px);
+  }
+
+  .markdown-preview-view h3 {
+    font-size: min(var(--velora-h3-font-size), 18px);
+  }
+
+  .markdown-preview-view table,
+  .markdown-preview-view pre,
+  .markdown-preview-view mjx-container[display="true"],
+  .markdown-preview-view .math.math-block {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .markdown-preview-view img,
+  .markdown-preview-view video,
+  .markdown-preview-view iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modal,
+  .prompt {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 16px);
+    border-radius: 18px;
+  }
+
+  .menu,
+  .suggestion-container,
+  .popover {
+    max-width: calc(100vw - 16px);
+    border-radius: 16px;
+  }
+
+  .status-bar,
+  .workspace-sidedock-vault-profile {
+    padding-bottom: max(4px, env(safe-area-inset-bottom, 0px));
+  }
+}
