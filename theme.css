@@ -10,8 +10,7 @@ id: velora
 settings:
   -
     id: velora-appearance
-    title: 外观与界面
-    type: heading
+    title: 外观与界�?    type: heading
     level: 2
   -
     id: velora-global-colors
@@ -38,8 +37,7 @@ settings:
         label: Ocean 冷蓝
         value: velora-palette-ocean
       -
-        label: Mint 奶油绿
-        value: velora-palette-mint
+        label: Mint 奶油�?        value: velora-palette-mint
   -
     id: velora-interface-style
     title: 界面表面
@@ -53,8 +51,7 @@ settings:
     default: velora-font-sans
     options:
       -
-        label: 现代无衬线
-        value: velora-font-sans
+        label: 现代无衬�?        value: velora-font-sans
       -
         label: 中文阅读
         value: velora-font-readable
@@ -69,15 +66,13 @@ settings:
     default: velora-density-comfortable
     options:
       -
-        label: 舒适
-        value: velora-density-comfortable
+        label: 舒�?        value: velora-density-comfortable
       -
         label: 紧凑
         value: velora-density-compact
   -
     id: velora-panel-opacity
-    title: 主面板不透明度
-    type: variable-number-slider
+    title: 主面板不透明�?    type: variable-number-slider
     default: 0.78
     min: 0.4
     max: 1
@@ -93,8 +88,7 @@ settings:
     step: 1
   -
     id: velora-panel-radius
-    title: 主面板圆角
-    type: variable-number-slider
+    title: 主面板圆�?    type: variable-number-slider
     format: px
     default: 28
     min: 8
@@ -102,8 +96,7 @@ settings:
     step: 1
   -
     id: velora-workspace-gap
-    title: 工作区间距
-    type: variable-number-slider
+    title: 工作区间�?    type: variable-number-slider
     format: px
     default: 12
     min: 4
@@ -125,8 +118,7 @@ settings:
     step: 1
   -
     id: velora-tab-max-width
-    title: 标签最大宽度
-    type: variable-number-slider
+    title: 标签最大宽�?    type: variable-number-slider
     format: px
     default: 210
     min: 120
@@ -151,54 +143,46 @@ settings:
     step: 1
   -
     id: velora-file-explorer
-    title: 文件浏览器
-    type: heading
+    title: 文件浏览�?    type: heading
     level: 2
   -
     id: velora-rainbow-tree-settings
-    title: 彩虹文件夹
-    type: heading
+    title: 彩虹文件�?    type: heading
     level: 3
   -
     id: velora-rainbow-tree
-    title: 启用彩虹文件夹
-    type: class-toggle
+    title: 启用彩虹文件�?    type: class-toggle
   -
     id: velora-rainbow-folder-bg-opacity
-    title: 顶级文件夹背景不透明度
-    type: variable-number-slider
+    title: 顶级文件夹背景不透明�?    type: variable-number-slider
     default: 0.18
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-folder-text-opacity
-    title: 顶级文件夹文字不透明度
-    type: variable-number-slider
+    title: 顶级文件夹文字不透明�?    type: variable-number-slider
     default: 0.85
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-folder-hover-opacity
-    title: 文件夹悬停背景不透明度
-    type: variable-number-slider
+    title: 文件夹悬停背景不透明�?    type: variable-number-slider
     default: 0.22
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-sub-bg-opacity
-    title: 子文件夹背景不透明度
-    type: variable-number-slider
+    title: 子文件夹背景不透明�?    type: variable-number-slider
     default: 0.14
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-sub-text-opacity
-    title: 子文件夹文字不透明度
-    type: variable-number-slider
+    title: 子文件夹文字不透明�?    type: variable-number-slider
     default: 0.8
     min: 0
     max: 1
@@ -233,8 +217,7 @@ settings:
     step: 2
   -
     id: velora-note-typography
-    title: 字体与标题
-    type: heading
+    title: 字体与标�?    type: heading
     level: 3
   -
     id: velora-note-font-size
@@ -247,8 +230,7 @@ settings:
     step: 1
   -
     id: velora-h1-font-size
-    title: 一级标题字号
-    type: variable-number-slider
+    title: 一级标题字�?    type: variable-number-slider
     format: px
     default: 36
     min: 26
@@ -296,17 +278,14 @@ settings:
     step: 1
   -
     id: velora-section-opacity
-    title: 笔记卡片透明度
-    type: variable-number-slider
+    title: 笔记卡片透明�?    type: variable-number-slider
     default: 0.68
     min: 0.3
     max: 1
     step: 0.01
   -
     id: velora-section-card-line-limit
-    title: 章节包围框最大行数
-    description: 超过该行数的二级标题章节自动使用无边框长文档模式。
-    type: variable-number-slider
+    title: 章节包围框最大行�?    description: 超过该行数的二级标题章节自动使用无边框长文档模式�?    type: variable-number-slider
     default: 120
     min: 20
     max: 400
@@ -341,8 +320,7 @@ settings:
     default: velora-note-align-left
     options:
       -
-        label: 左对齐
-        value: velora-note-align-left
+        label: 左对�?        value: velora-note-align-left
       -
         label: 两端对齐
         value: velora-note-align-justify
@@ -357,8 +335,7 @@ settings:
     default: velora-heading-align-left
     options:
       -
-        label: 左对齐
-        value: velora-heading-align-left
+        label: 左对�?        value: velora-heading-align-left
       -
         label: 居中
         value: velora-heading-align-center
@@ -393,8 +370,7 @@ settings:
     level: 3
   -
     id: velora-background-opacity
-    title: 背景图片不透明度
-    type: variable-number-slider
+    title: 背景图片不透明�?    type: variable-number-slider
     default: 0.18
     min: 0
     max: 0.8
@@ -410,8 +386,7 @@ settings:
     format: px
   -
     id: velora-background-saturate
-    title: 背景图片饱和度
-    type: variable-number-slider
+    title: 背景图片饱和�?    type: variable-number-slider
     default: 1
     min: 0
     max: 3
@@ -426,8 +401,7 @@ settings:
     step: 0.1
   -
     id: velora-sidebar
-    title: 悬浮侧边栏
-    type: heading
+    title: 悬浮侧边�?    type: heading
     level: 2
   -
     id: velora-sidebar-display
@@ -436,21 +410,17 @@ settings:
     level: 3
   -
     id: velora-floating-sidebar
-    title: 启用左侧浮动侧边栏
-    type: class-toggle
+    title: 启用左侧浮动侧边�?    type: class-toggle
   -
     id: velora-hide-left-ribbon
-    title: 隐藏左侧功能区
-    type: class-toggle
+    title: 隐藏左侧功能�?    type: class-toggle
   -
     id: velora-sidebar-size
-    title: 尺寸与位置
-    type: heading
+    title: 尺寸与位�?    type: heading
     level: 3
   -
     id: velora-sidebar-width
-    title: 浮动侧边栏宽度
-    type: variable-number-slider
+    title: 浮动侧边栏宽�?    type: variable-number-slider
     format: px
     default: 300
     min: 220
@@ -458,8 +428,7 @@ settings:
     step: 10
   -
     id: velora-sidebar-height
-    title: 浮动侧边栏高度
-    type: variable-number-slider
+    title: 浮动侧边栏高�?    type: variable-number-slider
     format: "%"
     default: 86
     min: 50
@@ -467,8 +436,7 @@ settings:
     step: 1
   -
     id: velora-sidebar-left-margin
-    title: 展开后左侧距离
-    type: variable-number-slider
+    title: 展开后左侧距�?    type: variable-number-slider
     format: px
     default: 14
     min: 0
@@ -481,16 +449,14 @@ settings:
     level: 3
   -
     id: velora-sidebar-opacity
-    title: 浮动侧边栏透明度
-    type: variable-number-slider
+    title: 浮动侧边栏透明�?    type: variable-number-slider
     default: 0.82
     min: 0.35
     max: 1
     step: 0.01
   -
     id: velora-sidebar-blur
-    title: 侧边栏玻璃模糊
-    type: variable-number-slider
+    title: 侧边栏玻璃模�?    type: variable-number-slider
     format: px
     default: 22
     min: 0
@@ -498,8 +464,7 @@ settings:
     step: 1
   -
     id: velora-sidebar-radius
-    title: 侧边栏圆角
-    type: variable-number-slider
+    title: 侧边栏圆�?    type: variable-number-slider
     format: px
     default: 22
     min: 8
@@ -507,20 +472,17 @@ settings:
     step: 1
   -
     id: velora-sidebar-liquid-glass
-    title: 启用液态玻璃效果
-    type: class-toggle
+    title: 启用液态玻璃效�?    type: class-toggle
   -
     id: velora-sidebar-liquid-intensity
-    title: 液态玻璃流光强度
-    type: variable-number-slider
+    title: 液态玻璃流光强�?    type: variable-number-slider
     default: 0.28
     min: 0.08
     max: 0.6
     step: 0.01
   -
     id: velora-sidebar-liquid-duration
-    title: 液态玻璃流动周期
-    type: variable-number-slider
+    title: 液态玻璃流动周�?    type: variable-number-slider
     format: s
     default: 18
     min: 10
@@ -528,8 +490,7 @@ settings:
     step: 1
   -
     id: velora-sidebar-interaction
-    title: 收回与把手
-    type: heading
+    title: 收回与把�?    type: heading
     level: 3
   -
     id: velora-sidebar-retract-delay
@@ -560,14 +521,11 @@ settings:
     step: 2
   -
     id: velora-compatibility
-    title: 兼容性
-    type: heading
+    title: 兼容�?    type: heading
     level: 2
   -
     id: velora-plugin-style
-    title: 第三方插件界面
-    description: 兼容优先只美化 Obsidian 原生控件；统一美化会覆盖更多插件控件。
-    type: class-select
+    title: 第三方插件界�?    description: 兼容优先只美�?Obsidian 原生控件；统一美化会覆盖更多插件控件�?    type: class-select
     allowEmpty: false
     default: velora-plugin-style-safe
     options:
@@ -592,8 +550,7 @@ settings:
     type: class-toggle
   -
     id: velora-focus-ring-width
-    title: 键盘焦点环宽度
-    type: variable-number-slider
+    title: 键盘焦点环宽�?    type: variable-number-slider
     format: px
     default: 2
     min: 1
@@ -601,8 +558,7 @@ settings:
     step: 1
   -
     id: velora-scrollbar-size
-    title: 滚动条尺寸
-    type: variable-number-slider
+    title: 滚动条尺�?    type: variable-number-slider
     format: px
     default: 12
     min: 8
@@ -2050,7 +2006,7 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
 /* CSS fallback for pure theme installs. It frames compact H2 sections when the
    next H1/H2/footer appears within a small number of rendered blocks. Exact
    line-count detection still requires JavaScript, so long sections stay title-only. */
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
@@ -2062,21 +2018,21 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
   border-radius: var(--velora-note-radius) var(--velora-note-radius) 0 0;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0.45rem 1.28rem;
@@ -2086,19 +2042,19 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
   border-radius: 0;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
   padding-top: 1.12rem;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) + div:not(.el-h1):not(.el-h2):not(.mod-footer) {
   padding-bottom: 1.12rem;
   border-bottom: 1px solid var(--velora-section-border);
   border-radius: 0 0 var(--velora-note-radius) var(--velora-note-radius);
@@ -2106,7 +2062,7 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
 }
 
 /* Wider pure-theme fallback for compact sections with H3 subgroups. */
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
@@ -2116,41 +2072,41 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
   border-radius: var(--velora-note-radius) var(--velora-note-radius) 0 0;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
 ) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) {
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0.45rem 1.28rem;
@@ -2160,7 +2116,7 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
   border-radius: 0;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):is(
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):is(
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)),
   :has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer))
@@ -2168,9 +2124,9 @@ body.velora-palette-pretty-note .markdown-preview-view h1 {
   padding-top: 1.12rem;
 }
 
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
-.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) {
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer),
+.markdown-preview-view .markdown-preview-section > div.el-h2:not(.velora-h2-card-block):not(.velora-h2-long-block):has(+ div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:is(.el-h1, .el-h2, .mod-footer)) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) + div:not(.el-h1, .el-h2, .mod-footer) {
   padding-bottom: 1.12rem;
   border-bottom: 1px solid var(--velora-section-border);
   border-radius: 0 0 var(--velora-note-radius) var(--velora-note-radius);
