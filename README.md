@@ -1,20 +1,8 @@
 ﻿# Velora
 
-Velora is a custom Obsidian theme with an optional companion plugin for sidebar controls.
+Velora is a custom Obsidian theme with a soft glass interface, floating sidebar styling, Style Settings controls, and responsive desktop/tablet/mobile layout tuning.
 
-## Repository Layout
-
-```text
-manifest.json
-theme.css
-plugin/
-  velora-sidebar-controls/
-    main.js
-    styles.css
-    manifest.json
-```
-
-## Install Theme Only
+## Install
 
 Download this repository as a ZIP, extract it, and put the extracted folder into:
 
@@ -22,63 +10,34 @@ Download this repository as a ZIP, extract it, and put the extracted folder into
 .obsidian/themes/
 ```
 
-The final theme structure should be:
+The final structure should be:
 
 ```text
 .obsidian/themes/Velora/
   manifest.json
   theme.css
 ```
+
+If the extracted folder is named `obsidian-velora-main`, rename it to `Velora` for clarity.
 
 Then open Obsidian and select `Velora` in Settings -> Appearance -> Themes.
 
-## Install Theme + Sidebar Controls
+## Style Settings
 
-Obsidian themes cannot load JavaScript from the theme folder. The sidebar controls are a companion plugin and must be installed in the plugins folder.
+Velora is designed to work with the Style Settings community plugin. Install Style Settings if you want to control theme options from Obsidian settings.
 
-Use the complete install package from Releases when available:
+The floating sidebar options are handled by theme CSS variables, including:
 
-```text
-Velora-complete-vault-install-1.3.3.zip
-```
+- enable or disable the left floating sidebar
+- hide or show the left ribbon
+- sidebar width
+- sidebar height
+- left margin when expanded
+- auto retract delay
+- sidebar opacity, blur, radius, and liquid glass effect
 
-Extract it into your vault root so the structure becomes:
-
-```text
-.obsidian/themes/Velora/
-  manifest.json
-  theme.css
-.obsidian/plugins/velora-sidebar-controls/
-  main.js
-  manifest.json
-  styles.css
-```
-
-Then enable both:
-
-- Settings -> Appearance -> Themes -> Velora
-- Settings -> Community plugins -> Velora Sidebar Controls
-
-## Manual Plugin Install
-
-If you installed the theme only, copy this folder:
-
-```text
-plugin/velora-sidebar-controls/
-```
-
-into:
-
-```text
-.obsidian/plugins/velora-sidebar-controls/
-```
-
-Then enable `Velora Sidebar Controls` in Settings -> Community plugins.
-
-## Recommended Plugin
-
-Velora supports settings through the Style Settings plugin. Install Style Settings from Obsidian community plugins if you want to adjust theme options from the settings UI.
+No companion plugin is required for these settings. Sidebar size is adjusted from Style Settings instead of direct drag handles.
 
 ## Notes
 
-This repository is intended for personal GitHub management. It does not include the full Obsidian vault, workspace files, cache files, or private notes.
+This repository is intended for personal GitHub management. It does not include the full Obsidian vault, workspace files, cache files, private notes, or JavaScript plugin code.

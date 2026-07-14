@@ -2,6 +2,6 @@
 
 ## 1.3.3
 
-- Initial GitHub-managed release.
-- Includes the Velora theme.
-- Includes the optional Velora Sidebar Controls plugin.
+- Converted Velora to a directly installable theme repository.
+- Sidebar sizing is controlled through Style Settings variables instead of a companion plugin.
+- Removed the companion plugin from the release structure.
