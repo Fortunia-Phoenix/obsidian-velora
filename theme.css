@@ -303,15 +303,6 @@ settings:
     max: 1
     step: 0.01
   -
-    id: velora-section-card-line-limit
-    title: 章节包围框最大行数
-    description: 超过该行数的二级标题章节自动使用无边框长文档模式。
-    type: variable-number-slider
-    default: 120
-    min: 20
-    max: 400
-    step: 10
-  -
     id: velora-note-frame-width
     title: Markdown 外框宽度
     type: variable-number-slider
