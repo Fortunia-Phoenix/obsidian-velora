@@ -2,12 +2,11 @@
 
 Velora is a custom Obsidian theme with an optional companion plugin for sidebar controls.
 
-## Contents
+## Repository Layout
 
 ```text
-theme/
-  theme.css
-  manifest.json
+manifest.json
+theme.css
 plugin/
   velora-sidebar-controls/
     main.js
@@ -15,40 +14,68 @@ plugin/
     manifest.json
 ```
 
-## Install the theme
+## Install Theme Only
 
-Copy these files:
+Download this repository as a ZIP, extract it, and put the extracted folder into:
 
 ```text
-theme/theme.css
-theme/manifest.json
+.obsidian/themes/
 ```
 
-into this Obsidian folder:
+The final theme structure should be:
 
 ```text
 .obsidian/themes/Velora/
+  manifest.json
+  theme.css
 ```
 
 Then open Obsidian and select `Velora` in Settings -> Appearance -> Themes.
 
-## Install the optional plugin
+## Install Theme + Sidebar Controls
 
-Copy this folder:
+Obsidian themes cannot load JavaScript from the theme folder. The sidebar controls are a companion plugin and must be installed in the plugins folder.
+
+Use the complete install package from Releases when available:
+
+```text
+Velora-complete-vault-install-1.3.3.zip
+```
+
+Extract it into your vault root so the structure becomes:
+
+```text
+.obsidian/themes/Velora/
+  manifest.json
+  theme.css
+.obsidian/plugins/velora-sidebar-controls/
+  main.js
+  manifest.json
+  styles.css
+```
+
+Then enable both:
+
+- Settings -> Appearance -> Themes -> Velora
+- Settings -> Community plugins -> Velora Sidebar Controls
+
+## Manual Plugin Install
+
+If you installed the theme only, copy this folder:
 
 ```text
 plugin/velora-sidebar-controls/
 ```
 
-into this Obsidian folder:
+into:
 
 ```text
 .obsidian/plugins/velora-sidebar-controls/
 ```
 
-Then open Obsidian and enable `Velora Sidebar Controls` in Settings -> Community plugins.
+Then enable `Velora Sidebar Controls` in Settings -> Community plugins.
 
-## Recommended plugin
+## Recommended Plugin
 
 Velora supports settings through the Style Settings plugin. Install Style Settings from Obsidian community plugins if you want to adjust theme options from the settings UI.
 
