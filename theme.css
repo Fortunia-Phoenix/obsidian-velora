@@ -1656,6 +1656,8 @@ body.velora-palette-minimal {
   --velora-section-surface: rgba(var(--velora-surface-rgb), var(--velora-section-opacity));
   --velora-section-border: rgba(var(--velora-accent-rgb), 0.16);
   --velora-note-soft: rgba(var(--velora-sky-rgb), 0.32);
+  --velora-highlight: rgba(218, 191, 106, 0.38);
+  --text-highlight-bg: rgba(218, 191, 106, 0.34);
   --velora-dark-surface-rgb: 24, 27, 31;
   --velora-dark-bg-start: #111315;
   --velora-dark-bg-mid: #181b1f;
@@ -2329,6 +2331,27 @@ body:not(.velora-section-engine-active) .markdown-preview-view .markdown-preview
   border-bottom: 1px solid rgba(var(--velora-warm-rgb), 0.48);
   border-radius: 3px;
   padding: 0 0.12em;
+}
+
+body.velora-palette-minimal .markdown-preview-view mark {
+  border-bottom-color: rgba(176, 145, 54, 0.46);
+}
+
+.markdown-source-view.mod-cm6 .cm-highlight {
+  color: color-mix(in srgb, var(--velora-ink) 88%, var(--velora-blue));
+  background: linear-gradient(180deg, transparent 10%, var(--velora-highlight) 10%);
+  border-radius: 3px;
+  padding: 0 0.08em;
+}
+
+body.velora-palette-minimal .markdown-source-view.mod-cm6 .cm-highlight {
+  box-shadow: inset 0 -1px 0 rgba(176, 145, 54, 0.42);
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-highlight {
+  color: color-mix(in srgb, var(--velora-muted-color) 74%, var(--velora-blue));
+  background: transparent;
+  box-shadow: none;
 }
 
 .markdown-preview-view hr {
