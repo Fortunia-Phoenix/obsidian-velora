@@ -40,6 +40,9 @@ settings:
       -
         label: Mint 奶油绿
         value: velora-palette-mint
+      -
+        label: Minimal 素白极简
+        value: velora-palette-minimal
   -
     id: velora-interface-style
     title: 界面表面
@@ -1628,6 +1631,37 @@ body.velora-palette-mint {
   --velora-dark-bg-end: #123f2d;
 }
 
+body.velora-palette-minimal {
+  --velora-blue: #5f6f7c;
+  --velora-blue-soft: #d8dee3;
+  --velora-cream: #f1eee8;
+  --velora-ink: #1f2328;
+  --velora-accent-rgb: 95, 111, 124;
+  --velora-warm-rgb: 241, 238, 232;
+  --velora-sky-rgb: 216, 222, 227;
+  --velora-bg-start: #f8f9fa;
+  --velora-bg-mid: #f3f4f5;
+  --velora-bg-end: #e7eaed;
+  --velora-note-emphasis: #4b5560;
+  --velora-surface-rgb: 252, 252, 251;
+  --velora-panel-rgb: 249, 250, 250;
+  --velora-shadow-rgb: 31, 35, 40;
+  --velora-muted-color: #6f7780;
+  --velora-faint-color: #a0a7ae;
+  --velora-panel-strong: rgba(252, 252, 251, 0.94);
+  --velora-border: rgba(var(--velora-accent-rgb), 0.14);
+  --velora-ui-hover: rgba(var(--velora-sky-rgb), 0.44);
+  --velora-ui-soft: rgba(var(--velora-sky-rgb), 0.28);
+  --velora-ui-field: rgba(252, 252, 251, 0.86);
+  --velora-section-surface: rgba(var(--velora-surface-rgb), var(--velora-section-opacity));
+  --velora-section-border: rgba(var(--velora-accent-rgb), 0.16);
+  --velora-note-soft: rgba(var(--velora-sky-rgb), 0.32);
+  --velora-dark-surface-rgb: 24, 27, 31;
+  --velora-dark-bg-start: #111315;
+  --velora-dark-bg-mid: #181b1f;
+  --velora-dark-bg-end: #22262b;
+}
+
 .theme-dark body,
 body.theme-dark {
   --velora-bg-start: var(--velora-dark-bg-start);
@@ -2379,6 +2413,13 @@ body.velora-note-align-justify .markdown-preview-view li {
 body.velora-note-align-center .markdown-preview-view p,
 body.velora-note-align-center .markdown-preview-view li {
   text-align: center;
+}
+
+body.velora-note-align-justify .markdown-preview-view p:has(code),
+body.velora-note-align-justify .markdown-preview-view li:has(code),
+body.velora-note-align-justify .markdown-preview-view blockquote p {
+  text-align: start;
+  text-justify: auto;
 }
 
 .markdown-source-view.mod-cm6 .cm-line {
