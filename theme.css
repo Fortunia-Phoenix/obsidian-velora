@@ -669,6 +669,18 @@ settings:
   --font-monospace-theme: "Fira Code", "JetBrains Mono", "Cascadia Code", Consolas, monospace;
   --line-height-normal: 1.65;
   --line-height-tight: 1.35;
+  --code-background: rgba(246, 248, 250, 0.9);
+  --code-normal: #344150;
+  --code-comment: #8a96a3;
+  --code-function: #a96700;
+  --code-important: #c2415d;
+  --code-keyword: #c72f73;
+  --code-operator: #d22d50;
+  --code-property: #5b6680;
+  --code-punctuation: #657383;
+  --code-string: #24735d;
+  --code-tag: #9a4f14;
+  --code-value: #6f4fd8;
 }
 
 .theme-dark {
@@ -696,6 +708,18 @@ settings:
   --divider-color-hover: rgba(177, 227, 255, 0.28);
   --modal-background: rgba(15, 23, 42, 0.9);
   --prompt-border-color: rgba(255, 255, 255, 0.12);
+  --code-background: rgba(8, 15, 28, 0.88);
+  --code-normal: #d8e2ef;
+  --code-comment: #8190a6;
+  --code-function: #ffd166;
+  --code-important: #ff7a9b;
+  --code-keyword: #ff6fb0;
+  --code-operator: #ff8a9a;
+  --code-property: #b9c7d8;
+  --code-punctuation: #9fb0c5;
+  --code-string: #8de0c2;
+  --code-tag: #ffb86b;
+  --code-value: #b49cff;
 }
 
 .app-container,
@@ -2304,17 +2328,89 @@ body:not(.velora-section-engine-active) .markdown-preview-view .markdown-preview
   padding: 0.12em 0.34em;
 }
 
-.markdown-preview-view pre {
-  background: color-mix(in srgb, var(--velora-ink) 92%, white);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+:is(.markdown-preview-view, .markdown-rendered) pre {
+  color: var(--code-normal);
+  background: var(--code-background);
+  border: 1px solid rgba(var(--velora-accent-rgb), 0.13);
   border-radius: calc(var(--velora-note-radius) - 4px);
-  box-shadow: 0 14px 34px rgba(var(--velora-shadow-rgb), 0.14);
+  box-shadow: 0 12px 28px rgba(var(--velora-shadow-rgb), 0.075);
 }
 
-.markdown-preview-view pre code {
-  color: #f8fbff;
+.theme-dark :is(.markdown-preview-view, .markdown-rendered) pre {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code {
+  color: var(--code-normal);
   background: transparent;
   border: 0;
+  text-shadow: none;
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.comment, .token.prolog, .token.doctype, .token.cdata) {
+  color: var(--code-comment);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.punctuation, .token.namespace) {
+  color: var(--code-punctuation);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.operator, .token.entity, .token.url) {
+  color: var(--code-operator);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.boolean, .token.number, .token.constant, .token.symbol) {
+  color: var(--code-value);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.property, .token.variable, .token.parameter, .token.attr-name) {
+  color: var(--code-property);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.string, .token.char, .token.attr-value, .token.regex) {
+  color: var(--code-string);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.keyword, .token.selector, .token.important, .token.atrule) {
+  color: var(--code-keyword);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.function, .token.class-name) {
+  color: var(--code-function);
+}
+
+:is(.markdown-preview-view, .markdown-rendered) pre code :is(.token.deleted, .token.inserted) {
+  color: var(--code-important);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  color: var(--code-normal);
+  background: var(--code-background);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-comment, .cm-meta) {
+  color: var(--code-comment);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-keyword, .cm-atom) {
+  color: var(--code-keyword);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-string, .cm-string-2) {
+  color: var(--code-string);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-number, .cm-builtin) {
+  color: var(--code-value);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-def, .cm-variable-2, .cm-variable-3, .cm-type) {
+  color: var(--code-function);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-operator, .cm-punctuation) {
+  color: var(--code-operator);
 }
 
 .markdown-preview-view a {
