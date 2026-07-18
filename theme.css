@@ -1326,10 +1326,13 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-quote {
+  margin: 0.2em 0;
+  padding: 0.2em 0.72em 0.2em 0.82em;
   color: var(--text-muted);
-  background: linear-gradient(90deg, rgba(var(--velora-accent-rgb), 0.08), rgba(var(--velora-surface-rgb), 0.34));
-  border-radius: 12px;
-  box-shadow: inset 2px 0 0 rgba(var(--velora-accent-rgb), 0.36);
+  background: linear-gradient(90deg, rgba(var(--velora-accent-rgb), 0.075), rgba(var(--velora-surface-rgb), 0.26) 48%, transparent);
+  border-left: 3px solid rgba(var(--velora-accent-rgb), 0.48);
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .markdown-source-view.mod-cm6 .cm-quote {
@@ -1339,6 +1342,12 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
   border-radius: 0;
   box-shadow: none;
   padding: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-quote :is(.cm-formatting-quote, .cm-quote.cm-formatting) {
+  color: color-mix(in srgb, var(--text-faint) 82%, var(--velora-blue));
+  font-weight: 700;
+  margin-right: 0.32em;
 }
 
 .markdown-source-view.mod-cm6 .cm-contentContainer {
