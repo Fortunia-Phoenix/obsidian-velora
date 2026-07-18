@@ -1235,16 +1235,34 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  margin: 1.15em 0 0.72em;
+  padding: 0.1em 0 0.32em;
   font-size: var(--velora-h1-font-size);
   line-height: 1.16;
-  font-weight: 760;
+  font-weight: 820;
   letter-spacing: 0;
   color: var(--text-normal);
+  background: linear-gradient(90deg, rgba(var(--velora-accent-rgb), 0.11), transparent 54%);
+  border-bottom: 2px solid rgba(var(--velora-accent-rgb), 0.28);
 }
 
-.markdown-source-view.mod-cm6 .HyperMD-header-1 .cm-formatting-header {
+.markdown-source-view.mod-cm6 .HyperMD-header-1 .cm-header-1 {
+  color: var(--text-normal);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.markdown-source-view.mod-cm6 .cm-header-1:not(.cm-formatting-header):not(.cm-formatting-header-1) {
+  color: var(--text-normal);
+  font-size: var(--velora-h1-font-size);
+  font-weight: 820;
+  line-height: 1.16;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-1 .cm-formatting-header,
+.markdown-source-view.mod-cm6 .cm-formatting-header-1 {
   color: var(--text-faint);
-  font-size: 0.74em;
+  font-size: 0.68em;
   font-weight: 650;
 }
 
@@ -1255,7 +1273,7 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
   color: var(--text-normal);
   font-size: var(--velora-h2-font-size);
   line-height: 1.28;
-  font-weight: 760;
+  font-weight: 780;
   letter-spacing: 0;
   background: linear-gradient(90deg, rgba(var(--velora-accent-rgb), 0.1), rgba(var(--velora-surface-rgb), 0.38) 58%, transparent);
   border-left: 4px solid rgba(var(--velora-accent-rgb), 0.5);
@@ -1263,7 +1281,21 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
   box-shadow: inset 0 -1px 0 rgba(var(--velora-accent-rgb), 0.12);
 }
 
-.markdown-source-view.mod-cm6 .HyperMD-header-2 .cm-formatting-header {
+.markdown-source-view.mod-cm6 .HyperMD-header-2 .cm-header-2 {
+  color: var(--text-normal);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.markdown-source-view.mod-cm6 .cm-header-2:not(.cm-formatting-header):not(.cm-formatting-header-2) {
+  color: var(--text-normal);
+  font-size: var(--velora-h2-font-size);
+  font-weight: 780;
+  line-height: 1.28;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-2 .cm-formatting-header,
+.markdown-source-view.mod-cm6 .cm-formatting-header-2 {
   color: var(--text-faint);
   font-size: 0.78em;
   font-weight: 650;
@@ -3829,6 +3861,10 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
     font-size: clamp(30px, var(--velora-h1-font-size), 34px);
   }
 
+  .markdown-source-view.mod-cm6 .cm-header-1:not(.cm-formatting-header):not(.cm-formatting-header-1) {
+    font-size: clamp(30px, var(--velora-h1-font-size), 34px);
+  }
+
   .markdown-preview-view h2,
   .markdown-source-view.mod-cm6 .HyperMD-header-2 {
     padding: 0.82em 0.85em 0.72em 2.55em;
@@ -3837,6 +3873,10 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
 
   .markdown-source-view.mod-cm6 .HyperMD-header-2 {
     padding: 0.4em 0.72em 0.4em 0.82em;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-header-2:not(.cm-formatting-header):not(.cm-formatting-header-2) {
+    font-size: clamp(23px, var(--velora-h2-font-size), 27px);
   }
 
   .markdown-preview-view h3 {
