@@ -1242,6 +1242,12 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
   color: var(--text-normal);
 }
 
+.markdown-source-view.mod-cm6 .HyperMD-header-1 .cm-formatting-header {
+  color: var(--text-faint);
+  font-size: 0.74em;
+  font-weight: 650;
+}
+
 .markdown-source-view.mod-cm6 .HyperMD-header-2 {
   font-size: var(--velora-h2-font-size);
   line-height: 1.08;
@@ -3804,8 +3810,9 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
     line-height: min(var(--velora-note-line-height), 1.74);
   }
 
-  .markdown-preview-view h1 {
-    font-size: min(var(--velora-h1-font-size), 28px);
+  .markdown-preview-view h1,
+  .markdown-source-view.mod-cm6 .HyperMD-header-1 {
+    font-size: clamp(30px, var(--velora-h1-font-size), 34px);
   }
 
   .markdown-preview-view h2 {
