@@ -804,8 +804,9 @@ settings:
   padding-top: 10px;
 }
 
-body.velora-hide-left-ribbon .workspace-ribbon.mod-left {
-  display: none !important;
+body.velora-hide-left-ribbon .workspace-ribbon.mod-left,
+body.velora-hide-left-ribbon .workspace-drawer-ribbon {
+  display: none;
 }
 
 .side-dock-ribbon-action,
@@ -3695,12 +3696,8 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
     transform: none;
   }
 
-  body.is-mobile .sidebar-toggle-button.mod-left {
-    display: flex !important;
-  }
-
-  body.is-mobile.velora-hide-left-ribbon .sidebar-toggle-button.mod-left {
-    display: none !important;
+  body.velora-hide-left-ribbon .sidebar-toggle-button.mod-left {
+    display: none;
   }
 }
 
