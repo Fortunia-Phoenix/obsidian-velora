@@ -3698,6 +3698,10 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
   body.is-mobile .sidebar-toggle-button.mod-left {
     display: flex !important;
   }
+
+  body.is-mobile.velora-hide-left-ribbon .sidebar-toggle-button.mod-left {
+    display: none !important;
+  }
 }
 
 /* iPad portrait/landscape and other touch tablets. */
