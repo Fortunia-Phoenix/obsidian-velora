@@ -170,15 +170,15 @@ settings:
     id: velora-rainbow-folder-bg-opacity
     title: 顶级文件夹背景不透明度
     type: variable-number-slider
-    default: 0.18
+    default: 0.1
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-folder-text-opacity
-    title: 顶级文件夹文字不透明度
+    title: 顶级文件夹文字色彩强度
     type: variable-number-slider
-    default: 0.85
+    default: 0.68
     min: 0
     max: 1
     step: 0.01
@@ -186,7 +186,7 @@ settings:
     id: velora-rainbow-folder-hover-opacity
     title: 文件夹悬停背景不透明度
     type: variable-number-slider
-    default: 0.22
+    default: 0.16
     min: 0
     max: 1
     step: 0.01
@@ -194,15 +194,15 @@ settings:
     id: velora-rainbow-sub-bg-opacity
     title: 子文件夹背景不透明度
     type: variable-number-slider
-    default: 0.14
+    default: 0.06
     min: 0
     max: 1
     step: 0.01
   -
     id: velora-rainbow-sub-text-opacity
-    title: 子文件夹文字不透明度
+    title: 子文件夹文字色彩强度
     type: variable-number-slider
-    default: 0.8
+    default: 0.58
     min: 0
     max: 1
     step: 0.01
@@ -477,7 +477,7 @@ settings:
     id: velora-sidebar-opacity
     title: 浮动侧边栏透明度
     type: variable-number-slider
-    default: 0.82
+    default: 0.88
     min: 0.35
     max: 1
     step: 0.01
@@ -507,7 +507,7 @@ settings:
     id: velora-sidebar-liquid-intensity
     title: 液态玻璃流光强度
     type: variable-number-slider
-    default: 0.28
+    default: 0.16
     min: 0.08
     max: 0.6
     step: 0.01
@@ -605,9 +605,9 @@ settings:
 */
 
 :root {
-  --velora-blue: #0087eb;
-  --velora-blue-soft: #b1e3ff;
-  --velora-cream: #ffe0ae;
+  --velora-blue: #1478b8;
+  --velora-blue-soft: #d5e8f4;
+  --velora-cream: #f7dfb8;
   --velora-ink: #111827;
   --velora-surface-rgb: 255, 255, 255;
   --velora-shadow-rgb: 17, 24, 39;
@@ -632,31 +632,31 @@ settings:
 }
 
 .theme-light {
-  --background-primary: #f5f9ff;
-  --background-primary-alt: #edf6ff;
+  --background-primary: var(--velora-bg-start);
+  --background-primary-alt: var(--velora-bg-mid);
   --background-secondary: rgba(255, 255, 255, 0.58);
   --background-secondary-alt: rgba(255, 255, 255, 0.82);
-  --background-modifier-hover: rgba(0, 135, 235, 0.08);
-  --background-modifier-active-hover: rgba(0, 135, 235, 0.12);
+  --background-modifier-hover: rgba(var(--velora-accent-rgb), 0.08);
+  --background-modifier-active-hover: rgba(var(--velora-accent-rgb), 0.12);
   --background-modifier-border: rgba(17, 24, 39, 0.08);
-  --background-modifier-border-hover: rgba(0, 135, 235, 0.26);
+  --background-modifier-border-hover: rgba(var(--velora-accent-rgb), 0.26);
   --background-modifier-form-field: rgba(255, 255, 255, 0.82);
   --background-modifier-form-field-highlighted: rgba(255, 255, 255, 0.94);
   --text-normal: var(--velora-ink);
   --text-muted: #667085;
   --text-faint: #94a3b8;
   --text-accent: var(--velora-blue);
-  --text-accent-hover: #006dc0;
+  --text-accent-hover: color-mix(in srgb, var(--velora-blue) 78%, black);
   --interactive-normal: rgba(255, 255, 255, 0.75);
   --interactive-hover: rgba(255, 255, 255, 0.92);
   --interactive-accent: var(--velora-blue);
-  --interactive-accent-hover: #0078d4;
+  --interactive-accent-hover: color-mix(in srgb, var(--velora-blue) 86%, black);
   --titlebar-background: transparent;
   --titlebar-background-focused: transparent;
   --tab-container-background: transparent;
   --tab-outline-color: transparent;
   --divider-color: rgba(17, 24, 39, 0.07);
-  --divider-color-hover: rgba(0, 135, 235, 0.26);
+  --divider-color-hover: rgba(var(--velora-accent-rgb), 0.26);
   --modal-background: rgba(255, 255, 255, 0.88);
   --prompt-border-color: rgba(255, 255, 255, 0.72);
   --input-radius: 999px;
@@ -684,29 +684,29 @@ settings:
 }
 
 .theme-dark {
-  --background-primary: #0f172a;
-  --background-primary-alt: #111827;
-  --background-secondary: rgba(15, 23, 42, 0.68);
-  --background-secondary-alt: rgba(17, 24, 39, 0.88);
-  --background-modifier-hover: rgba(177, 227, 255, 0.1);
-  --background-modifier-active-hover: rgba(177, 227, 255, 0.14);
+  --background-primary: rgb(var(--velora-dark-surface-rgb));
+  --background-primary-alt: var(--velora-dark-bg-mid);
+  --background-secondary: rgba(var(--velora-dark-surface-rgb), 0.68);
+  --background-secondary-alt: color-mix(in srgb, rgb(var(--velora-dark-surface-rgb)) 88%, black);
+  --background-modifier-hover: rgba(var(--velora-sky-rgb), 0.1);
+  --background-modifier-active-hover: rgba(var(--velora-sky-rgb), 0.14);
   --background-modifier-border: rgba(255, 255, 255, 0.1);
   --text-normal: #f8fafc;
   --text-muted: #b6c2d4;
   --text-faint: #8190a6;
-  --text-accent: #65c7ff;
-  --text-accent-hover: #9addff;
+  --text-accent: color-mix(in srgb, var(--velora-blue) 58%, white);
+  --text-accent-hover: color-mix(in srgb, var(--velora-blue) 38%, white);
   --interactive-normal: rgba(255, 255, 255, 0.08);
   --interactive-hover: rgba(255, 255, 255, 0.14);
-  --interactive-accent: #0087eb;
-  --interactive-accent-hover: #2da7ff;
+  --interactive-accent: var(--velora-blue);
+  --interactive-accent-hover: color-mix(in srgb, var(--velora-blue) 72%, white);
   --titlebar-background: transparent;
   --titlebar-background-focused: transparent;
   --tab-container-background: transparent;
   --tab-outline-color: transparent;
   --divider-color: rgba(255, 255, 255, 0.1);
-  --divider-color-hover: rgba(177, 227, 255, 0.28);
-  --modal-background: rgba(15, 23, 42, 0.9);
+  --divider-color-hover: rgba(var(--velora-sky-rgb), 0.28);
+  --modal-background: rgba(var(--velora-dark-surface-rgb), 0.9);
   --prompt-border-color: rgba(255, 255, 255, 0.12);
   --code-background: rgba(8, 15, 28, 0.88);
   --code-normal: #d8e2ef;
@@ -1118,9 +1118,9 @@ body.velora-hide-left-ribbon .workspace-drawer-ribbon {
 }
 
 .nav-file-title.is-active {
-  background: linear-gradient(135deg, rgba(var(--velora-accent-rgb), 0.16), rgba(var(--velora-sky-rgb), 0.36));
+  background: linear-gradient(135deg, rgba(var(--velora-accent-rgb), 0.1), rgba(var(--velora-sky-rgb), 0.2));
   color: var(--velora-ink);
-  box-shadow: inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.16);
+  box-shadow: inset 0 0 0 1px rgba(var(--velora-accent-rgb), 0.12);
 }
 
 .theme-dark .nav-folder-title:hover,
@@ -1497,9 +1497,9 @@ body {
   position: relative;
   isolation: isolate;
   letter-spacing: 0;
-  --velora-accent-rgb: 0, 135, 235;
-  --velora-warm-rgb: 255, 224, 174;
-  --velora-sky-rgb: 177, 227, 255;
+  --velora-accent-rgb: 20, 120, 184;
+  --velora-warm-rgb: 247, 223, 184;
+  --velora-sky-rgb: 202, 225, 238;
   --velora-surface-rgb: 255, 255, 255;
   --velora-shadow-rgb: 17, 24, 39;
   --velora-muted-color: #667085;
@@ -1533,7 +1533,7 @@ body {
   --velora-ui-hover: rgba(var(--velora-surface-rgb), 0.82);
   --velora-ui-soft: rgba(var(--velora-surface-rgb), 0.58);
   --velora-ui-field: rgba(var(--velora-surface-rgb), 0.78);
-  --velora-shadow: 0 24px 70px rgba(var(--velora-accent-rgb), 0.14), 0 6px 20px rgba(var(--velora-shadow-rgb), 0.08);
+  --velora-shadow: 0 24px 70px rgba(var(--velora-accent-rgb), 0.08), 0 6px 20px rgba(var(--velora-shadow-rgb), 0.08);
   --velora-shadow-soft: 0 12px 34px rgba(var(--velora-shadow-rgb), 0.08);
   --velora-blur: blur(var(--velora-glass-blur)) saturate(1.25);
   --interactive-accent-rgb: var(--velora-accent-rgb);
@@ -1558,8 +1558,8 @@ body {
   --graph-node-tag: color-mix(in srgb, var(--velora-blue) 62%, var(--velora-cream));
   --graph-node-attachment: var(--velora-cream);
   --graph-node-unresolved: var(--velora-faint-color);
-  --velora-bg-start: #f3f7ff;
-  --velora-bg-mid: #edf7ff;
+  --velora-bg-start: #f6f8fa;
+  --velora-bg-mid: #eef4f7;
   --velora-bg-end: var(--velora-blue-soft);
   --velora-note-width: 1080px;
   --velora-note-font-size: 16px;
@@ -1585,8 +1585,8 @@ body {
   --velora-sidebar-width: 300px;
   --velora-sidebar-height: 86%;
   --velora-sidebar-left-margin: 14px;
-  --velora-sidebar-opacity: 0.82;
-  --velora-sidebar-liquid-intensity: 0.28;
+  --velora-sidebar-opacity: 0.88;
+  --velora-sidebar-liquid-intensity: 0.16;
   --velora-sidebar-liquid-duration: 18s;
   --velora-sidebar-retract-delay: 1.2s;
   --velora-sidebar-handle-width: 14px;
@@ -1598,16 +1598,16 @@ body {
 }
 
 body.velora-palette-velora {
-  --velora-blue: #0087eb;
-  --velora-blue-soft: #b1e3ff;
-  --velora-cream: #ffe0ae;
+  --velora-blue: #1478b8;
+  --velora-blue-soft: #d5e8f4;
+  --velora-cream: #f7dfb8;
   --velora-ink: #111827;
-  --velora-accent-rgb: 0, 135, 235;
-  --velora-warm-rgb: 255, 224, 174;
-  --velora-sky-rgb: 177, 227, 255;
-  --velora-bg-start: #f3f7ff;
-  --velora-bg-mid: #edf7ff;
-  --velora-bg-end: #b1e3ff;
+  --velora-accent-rgb: 20, 120, 184;
+  --velora-warm-rgb: 247, 223, 184;
+  --velora-sky-rgb: 202, 225, 238;
+  --velora-bg-start: #f6f8fa;
+  --velora-bg-mid: #eef4f7;
+  --velora-bg-end: #d5e8f4;
   --velora-note-emphasis: #b13f48;
   --velora-surface-rgb: 255, 255, 255;
   --velora-shadow-rgb: 17, 24, 39;
@@ -2632,11 +2632,11 @@ body.velora-heading-align-center .markdown-preview-view h2::before {
 
 /* Rainbow Tree, adapted from the snippet by vran. */
 .workspace-leaf-content[data-type="file-explorer"] {
-  --velora-rainbow-bg-opacity: var(--velora-rainbow-folder-bg-opacity, 0.18);
-  --velora-rainbow-text-opacity: var(--velora-rainbow-folder-text-opacity, 0.85);
-  --velora-rainbow-hover-opacity: var(--velora-rainbow-folder-hover-opacity, 0.22);
-  --velora-rainbow-child-bg-opacity: var(--velora-rainbow-sub-bg-opacity, 0.14);
-  --velora-rainbow-child-text-opacity: var(--velora-rainbow-sub-text-opacity, 0.8);
+  --velora-rainbow-bg-opacity: var(--velora-rainbow-folder-bg-opacity, 0.1);
+  --velora-rainbow-text-opacity: var(--velora-rainbow-folder-text-opacity, 0.68);
+  --velora-rainbow-hover-opacity: var(--velora-rainbow-folder-hover-opacity, 0.16);
+  --velora-rainbow-child-bg-opacity: var(--velora-rainbow-sub-bg-opacity, 0.06);
+  --velora-rainbow-child-text-opacity: var(--velora-rainbow-sub-text-opacity, 0.58);
 }
 
 body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 1) {
@@ -2669,8 +2669,8 @@ body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-
 
 body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .nav-folder-title {
   background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-bg-opacity));
-  color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-text-opacity));
-  --nav-collapse-icon-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-text-opacity));
+  color: color-mix(in srgb, rgb(var(--velora-rainbow-folder-rgb)) calc(var(--velora-rainbow-text-opacity) * 82%), var(--text-normal));
+  --nav-collapse-icon-color: color-mix(in srgb, rgb(var(--velora-rainbow-folder-rgb)) calc(var(--velora-rainbow-text-opacity) * 82%), var(--text-normal));
   --icon-color: var(--nav-collapse-icon-color);
 }
 
@@ -2680,8 +2680,8 @@ body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .n
 
 body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder > .tree-item-children .nav-folder-title {
   background-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-bg-opacity));
-  color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-text-opacity));
-  --nav-collapse-icon-color: rgba(var(--velora-rainbow-folder-rgb), var(--velora-rainbow-child-text-opacity));
+  color: color-mix(in srgb, rgb(var(--velora-rainbow-folder-rgb)) calc(var(--velora-rainbow-child-text-opacity) * 72%), var(--text-normal));
+  --nav-collapse-icon-color: color-mix(in srgb, rgb(var(--velora-rainbow-folder-rgb)) calc(var(--velora-rainbow-child-text-opacity) * 72%), var(--text-normal));
   --icon-color: var(--nav-collapse-icon-color);
 }
 
@@ -2802,7 +2802,7 @@ body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod
 
 /* Optional liquid-glass sidebars. Disabled by default. */
 body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
-  border-color: rgba(var(--velora-accent-rgb), 0.2);
+  border-color: rgba(var(--velora-accent-rgb), 0.14);
   background:
     radial-gradient(
       ellipse 115% 72% at 8% 6%,
@@ -2832,7 +2832,7 @@ body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
     inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.78),
     inset 0 0 34px rgba(var(--velora-accent-rgb), 0.055),
     0 16px 42px rgba(var(--velora-shadow-rgb), 0.1);
-  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.34) contrast(1.03);
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) contrast(1.02);
   animation: velora-sidebar-liquid-glass var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
 }
 
@@ -2932,7 +2932,7 @@ body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split
 }
 
 body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
-  border-color: rgba(var(--velora-accent-rgb), 0.24) !important;
+  border-color: rgba(var(--velora-accent-rgb), 0.18) !important;
   background:
     radial-gradient(
       ellipse 118% 76% at 6% 4%,
@@ -2961,8 +2961,8 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   box-shadow:
     inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.82),
     inset 0 0 42px rgba(var(--velora-accent-rgb), 0.065),
-    0 20px 58px rgba(var(--velora-shadow-rgb), 0.2) !important;
-  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.38) contrast(1.03) !important;
+    0 20px 58px rgba(var(--velora-shadow-rgb), 0.14) !important;
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) contrast(1.02) !important;
 }
 
 .theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
@@ -3046,7 +3046,7 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
     radial-gradient(ellipse 44% 38% at 82% 18%, rgba(var(--velora-warm-rgb), 0.82) 0%, transparent 70%),
     radial-gradient(ellipse 40% 48% at 80% 84%, rgba(var(--velora-accent-rgb), 0.68) 0%, transparent 72%);
   opacity: var(--velora-sidebar-liquid-intensity);
-  filter: blur(14px) saturate(1.22);
+  filter: blur(14px) saturate(1.08);
   transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1.04);
   transform-origin: center;
   animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
@@ -3129,7 +3129,7 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
     radial-gradient(ellipse 44% 38% at 82% 18%, rgba(var(--velora-warm-rgb), 0.82) 0%, transparent 70%),
     radial-gradient(ellipse 40% 48% at 80% 84%, rgba(var(--velora-accent-rgb), 0.68) 0%, transparent 72%);
   opacity: var(--velora-sidebar-liquid-intensity);
-  filter: blur(18px) saturate(1.22);
+  filter: blur(18px) saturate(1.08);
   transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1.04);
   transform-origin: center;
   animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
