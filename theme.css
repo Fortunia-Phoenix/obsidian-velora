@@ -1165,7 +1165,20 @@ body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
 .setting-item-control > .dropdown,
 body.velora-plugin-style-unified select:not(.metadata-container *),
 body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
-  border-radius: 10px;
+  min-height: 34px;
+  padding-inline-start: 12px;
+  padding-inline-end: 32px;
+  border-radius: 999px;
+  color: var(--text-normal);
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.setting-item-control > select:focus-visible,
+.setting-item-control > .dropdown:focus-visible,
+body.velora-plugin-style-unified select:not(.metadata-container *):focus-visible,
+body.velora-plugin-style-unified .dropdown:not(.metadata-container *):focus-visible {
+  outline: var(--velora-focus-ring-width) solid rgba(var(--velora-accent-rgb), 0.42);
+  outline-offset: 2px;
 }
 
 .setting-item-control > textarea,
@@ -1191,7 +1204,7 @@ body.velora-plugin-style-unified textarea:not(.metadata-container *) {
 .theme-dark.velora-plugin-style-unified select:not(.metadata-container *),
 .theme-dark.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(var(--velora-dark-surface-rgb), 0.72);
 }
 
 .setting-item-control > button:not(.clickable-icon),
@@ -1412,7 +1425,6 @@ body.velora-plugin-style-unified input[type="checkbox"]:checked {
 
 .suggestion-container,
 .menu {
-  border-radius: 22px;
   border: 1px solid var(--velora-border);
   background: var(--velora-panel-strong);
   box-shadow: var(--velora-shadow-soft);
@@ -1420,19 +1432,47 @@ body.velora-plugin-style-unified input[type="checkbox"]:checked {
   overflow: hidden;
 }
 
-.theme-dark .suggestion-container,
-.theme-dark .menu {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(15, 23, 42, 0.94);
+.suggestion-container {
+  border-radius: 18px;
 }
 
-.suggestion-item,
-.menu-item {
+.menu {
   border-radius: 14px;
 }
 
+.theme-dark .suggestion-container,
+.theme-dark .menu {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(var(--velora-dark-surface-rgb), 0.94);
+}
+
+.suggestion-item {
+  border-radius: 14px;
+}
+
+.menu-item {
+  border-radius: 12px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu {
+    padding: 4px;
+  }
+
+  .menu-item {
+    min-height: 32px;
+    border-radius: 999px;
+  }
+
+  .menu-separator {
+    margin-inline: 8px;
+  }
+}
+
 .suggestion-item.is-selected,
-.menu-item:hover {
+.menu-item:hover,
+.menu-item.is-selected,
+.menu-item.selected {
   background: rgba(var(--velora-accent-rgb), 0.1);
 }
 
@@ -3683,6 +3723,16 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
    ============================================================ */
 
 @media (hover: none), (pointer: coarse) {
+  .setting-item-control > select,
+  .setting-item-control > .dropdown,
+  body.velora-plugin-style-unified select:not(.metadata-container *),
+  body.velora-plugin-style-unified .dropdown:not(.metadata-container *),
+  .menu-item,
+  .suggestion-item {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
   .side-dock-ribbon-action:hover,
   .clickable-icon:hover,
   .workspace-tab-header:hover,
