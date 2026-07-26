@@ -1165,85 +1165,7 @@ body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
 .setting-item-control > .dropdown,
 body.velora-plugin-style-unified select:not(.metadata-container *),
 body.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
-  min-height: 34px;
-  padding-inline-start: 12px;
-  padding-inline-end: 32px;
-  border-radius: 999px;
-  color: var(--text-normal);
-  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
-}
-
-.setting-item-control > select:focus-visible,
-.setting-item-control > .dropdown:focus-visible,
-body.velora-plugin-style-unified select:not(.metadata-container *):focus-visible,
-body.velora-plugin-style-unified .dropdown:not(.metadata-container *):focus-visible {
-  outline: var(--velora-focus-ring-width) solid rgba(var(--velora-accent-rgb), 0.42);
-  outline-offset: 2px;
-}
-
-/* Customizable selects keep browser-managed placement while exposing the picker surface. */
-@supports (appearance: base-select) {
-  body .setting-item-control > select.dropdown,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) {
-    appearance: base-select;
-  }
-
-  body .setting-item-control > select.dropdown::picker(select),
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *)::picker(select) {
-    appearance: base-select;
-    max-height: min(34vh, 280px);
-    padding: 5px;
-    border: 1px solid var(--velora-border);
-    border-radius: 12px;
-    background: rgb(var(--velora-surface-rgb));
-    box-shadow: 0 10px 28px rgba(var(--velora-shadow-rgb), 0.14), inset 0 1px 0 var(--velora-border);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(var(--velora-accent-rgb), 0.36) transparent;
-  }
-
-  body.theme-dark .setting-item-control > select.dropdown::picker(select),
-  body.theme-dark.velora-plugin-style-unified select.dropdown:not(.metadata-container *)::picker(select) {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgb(var(--velora-dark-surface-rgb));
-  }
-
-  body .setting-item-control > select.dropdown option,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option {
-    display: flex;
-    align-items: center;
-    min-height: 30px;
-    margin-block: 1px;
-    padding: 5px 10px;
-    border: 0;
-    border-radius: 999px;
-    color: var(--text-normal);
-    background: transparent;
-    font: inherit;
-    line-height: 1.2;
-  }
-
-  body .setting-item-control > select.dropdown option:hover,
-  body .setting-item-control > select.dropdown option:focus-visible,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:hover,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:focus-visible {
-    background: rgba(var(--velora-accent-rgb), 0.08);
-    outline: 1px solid rgba(var(--velora-accent-rgb), 0.38);
-    outline-offset: -1px;
-  }
-
-  body .setting-item-control > select.dropdown option:checked,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:checked {
-    color: color-mix(in srgb, var(--text-normal) 72%, var(--velora-blue));
-    background: rgba(var(--velora-accent-rgb), 0.11);
-    font-weight: 650;
-  }
-
-  body .setting-item-control > select.dropdown option::checkmark,
-  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option::checkmark {
-    color: var(--velora-blue);
-  }
+  border-radius: 10px;
 }
 
 .setting-item-control > textarea,
@@ -1269,7 +1191,7 @@ body.velora-plugin-style-unified textarea:not(.metadata-container *) {
 .theme-dark.velora-plugin-style-unified select:not(.metadata-container *),
 .theme-dark.velora-plugin-style-unified .dropdown:not(.metadata-container *) {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(var(--velora-dark-surface-rgb), 0.72);
+  background: rgba(15, 23, 42, 0.72);
 }
 
 .setting-item-control > button:not(.clickable-icon),
@@ -1490,6 +1412,7 @@ body.velora-plugin-style-unified input[type="checkbox"]:checked {
 
 .suggestion-container,
 .menu {
+  border-radius: 22px;
   border: 1px solid var(--velora-border);
   background: var(--velora-panel-strong);
   box-shadow: var(--velora-shadow-soft);
@@ -1497,47 +1420,19 @@ body.velora-plugin-style-unified input[type="checkbox"]:checked {
   overflow: hidden;
 }
 
-.suggestion-container {
-  border-radius: 18px;
-}
-
-.menu {
-  border-radius: 14px;
-}
-
 .theme-dark .suggestion-container,
 .theme-dark .menu {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(var(--velora-dark-surface-rgb), 0.94);
+  background: rgba(15, 23, 42, 0.94);
 }
 
-.suggestion-item {
+.suggestion-item,
+.menu-item {
   border-radius: 14px;
 }
 
-.menu-item {
-  border-radius: 12px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .menu {
-    padding: 4px;
-  }
-
-  .menu-item {
-    min-height: 32px;
-    border-radius: 999px;
-  }
-
-  .menu-separator {
-    margin-inline: 8px;
-  }
-}
-
 .suggestion-item.is-selected,
-.menu-item:hover,
-.menu-item.is-selected,
-.menu-item.selected {
+.menu-item:hover {
   background: rgba(var(--velora-accent-rgb), 0.1);
 }
 
@@ -3788,16 +3683,6 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
    ============================================================ */
 
 @media (hover: none), (pointer: coarse) {
-  .setting-item-control > select,
-  .setting-item-control > .dropdown,
-  body.velora-plugin-style-unified select:not(.metadata-container *),
-  body.velora-plugin-style-unified .dropdown:not(.metadata-container *),
-  .menu-item,
-  .suggestion-item {
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-
   .side-dock-ribbon-action:hover,
   .clickable-icon:hover,
   .workspace-tab-header:hover,
