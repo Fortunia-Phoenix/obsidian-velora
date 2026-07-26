@@ -1181,6 +1181,66 @@ body.velora-plugin-style-unified .dropdown:not(.metadata-container *):focus-visi
   outline-offset: 2px;
 }
 
+/* Customizable selects keep browser-managed placement while exposing the picker surface. */
+@supports (appearance: base-select) {
+  body .setting-item-control > select.dropdown,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) {
+    appearance: base-select;
+  }
+
+  body .setting-item-control > select.dropdown::picker(select),
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *)::picker(select) {
+    appearance: base-select;
+    max-height: min(60vh, 520px);
+    padding: 4px;
+    border: 1px solid var(--velora-border);
+    border-radius: 14px;
+    background: var(--velora-panel-strong);
+    box-shadow: var(--velora-shadow-soft);
+    backdrop-filter: blur(18px) saturate(1.12);
+    overflow-y: auto;
+  }
+
+  body.theme-dark .setting-item-control > select.dropdown::picker(select),
+  body.theme-dark.velora-plugin-style-unified select.dropdown:not(.metadata-container *)::picker(select) {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(var(--velora-dark-surface-rgb), 0.96);
+  }
+
+  body .setting-item-control > select.dropdown option,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option {
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    margin-block: 2px;
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--text-normal);
+    background: transparent;
+    font: inherit;
+  }
+
+  body .setting-item-control > select.dropdown option:hover,
+  body .setting-item-control > select.dropdown option:focus-visible,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:hover,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:focus-visible {
+    background: rgba(var(--velora-accent-rgb), 0.08);
+  }
+
+  body .setting-item-control > select.dropdown option:checked,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option:checked {
+    color: color-mix(in srgb, var(--text-normal) 72%, var(--velora-blue));
+    background: rgba(var(--velora-accent-rgb), 0.14);
+    font-weight: 650;
+  }
+
+  body .setting-item-control > select.dropdown option::checkmark,
+  body.velora-plugin-style-unified select.dropdown:not(.metadata-container *) option::checkmark {
+    color: var(--velora-blue);
+  }
+}
+
 .setting-item-control > textarea,
 body.velora-plugin-style-unified textarea:not(.metadata-container *) {
   border-radius: 20px;
