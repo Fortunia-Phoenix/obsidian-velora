@@ -2,6 +2,10 @@
 
 Velora is a custom Obsidian theme with a soft glass interface, floating sidebar styling, Style Settings controls, and responsive desktop/tablet/mobile layout tuning.
 
+## Documentation
+
+- [中文功能与注意事项](FEATURES.zh-CN.md): implemented features, every Style Settings option, platform behavior, compatibility boundaries, and Velora Nexus notes.
+
 ## Install
 
 Download this repository as a ZIP, extract it, and put the extracted folder into:

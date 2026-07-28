@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## Unreleased
+
+- Added a complete Chinese feature and caveat reference for theme behavior, all Style Settings options, responsive rules, compatibility boundaries, and optional Velora Nexus integration.
+
 ## 1.3.3
 
 - Converted Velora to a directly installable theme repository.
