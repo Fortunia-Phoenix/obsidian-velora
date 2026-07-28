@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Added a complete Chinese feature and caveat reference for theme behavior, all Style Settings options, responsive rules, compatibility boundaries, and optional Velora Nexus integration.
+- Established the feature reference as the required synchronization and acceptance baseline for every future Velora change.
 
 ## 1.3.3
 

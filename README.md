@@ -4,7 +4,7 @@ Velora is a custom Obsidian theme with a soft glass interface, floating sidebar 
 
 ## Documentation
 
-- [中文功能与注意事项](FEATURES.zh-CN.md): implemented features, every Style Settings option, platform behavior, compatibility boundaries, and Velora Nexus notes.
+- [中文功能与注意事项](FEATURES.zh-CN.md): the authoritative maintenance baseline for implemented features, every Style Settings option, platform behavior, compatibility boundaries, and Velora Nexus notes. Every related change must update this document in the same commit.
 
 ## Install
 
