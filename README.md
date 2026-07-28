@@ -6,6 +6,12 @@ Velora is a custom Obsidian theme with a soft glass interface, floating sidebar 
 
 - [中文功能与注意事项](FEATURES.zh-CN.md): the authoritative maintenance baseline for implemented features, every Style Settings option, platform behavior, compatibility boundaries, and Velora Nexus notes. Every related change must update this document in the same commit.
 
+## Maintenance Contract
+
+Existing documented functionality is protected by default. A `VEL-*` feature contract may change only after the user explicitly confirms that specific functional change. Bug fixes, refactors, performance work, visual adjustments, compatibility updates, and other unconfirmed edits must preserve the behavior and availability of every affected feature.
+
+If preserving a feature is impossible, document its feature ID, current behavior, proposed behavior, compatibility impact, and migration or rollback plan before editing, then wait for explicit confirmation. Updating documentation does not itself authorize a functional regression.
+
 ## Install
 
 Download this repository as a ZIP, extract it, and put the extracted folder into:
