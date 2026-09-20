@@ -2667,31 +2667,35 @@ body.velora-heading-align-center .markdown-preview-view h2::before {
   --velora-rainbow-child-text-opacity: var(--velora-rainbow-sub-text-opacity, 0.58);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 1) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder {
+  --velora-rainbow-folder-rgb: var(--color-pink-rgb, 216, 27, 96);
+}
+
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="a" i], [data-path^="b" i], [data-path^="c" i], [data-path^="d" i])) {
   --velora-rainbow-folder-rgb: var(--color-red-rgb, 220, 70, 90);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 2) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="e" i], [data-path^="f" i], [data-path^="g" i], [data-path^="h" i])) {
   --velora-rainbow-folder-rgb: var(--color-blue-rgb, 66, 133, 244);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 3) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="i" i], [data-path^="j" i], [data-path^="k" i], [data-path^="l" i])) {
   --velora-rainbow-folder-rgb: var(--color-green-rgb, 52, 168, 83);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 4) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="m" i], [data-path^="n" i], [data-path^="o" i], [data-path^="p" i])) {
   --velora-rainbow-folder-rgb: var(--color-orange-rgb, 245, 159, 0);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 5) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="q" i], [data-path^="r" i], [data-path^="s" i], [data-path^="t" i])) {
   --velora-rainbow-folder-rgb: var(--color-purple-rgb, 126, 87, 194);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n + 6) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="u" i], [data-path^="v" i], [data-path^="w" i], [data-path^="x" i])) {
   --velora-rainbow-folder-rgb: var(--color-cyan-rgb, 0, 172, 193);
 }
 
-body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:nth-child(7n) {
+body.velora-rainbow-tree .nav-files-container > div > .tree-item.nav-folder:has(> .nav-folder-title:is([data-path^="y" i], [data-path^="z" i])) {
   --velora-rainbow-folder-rgb: var(--color-pink-rgb, 216, 27, 96);
 }
 

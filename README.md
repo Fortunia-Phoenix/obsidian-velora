@@ -28,6 +28,8 @@ manifest.json must be saved as UTF-8 without BOM. A BOM can let the CSS keep loa
 
 Velora is designed to work with the Style Settings community plugin. Install Style Settings if you want to control theme options from Obsidian settings.
 
+The optional rainbow folder tree assigns each top-level folder a stable color from its path's first Latin letter. Sorting or inserting folders no longer recolors existing folders; subfolders inherit their top-level folder color.
+
 The floating sidebar options are handled by theme CSS variables, including:
 
 - independently enable or disable the left and right floating sidebars
