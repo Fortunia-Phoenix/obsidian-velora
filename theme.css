@@ -433,6 +433,10 @@ settings:
     title: 启用左侧浮动侧边栏
     type: class-toggle
   -
+    id: velora-floating-right-sidebar
+    title: 启用右侧浮动侧边栏
+    type: class-toggle
+  -
     id: velora-hide-left-ribbon
     title: 隐藏左侧功能区
     type: class-toggle
@@ -462,6 +466,15 @@ settings:
   -
     id: velora-sidebar-left-margin
     title: 展开后左侧距离
+    type: variable-number-slider
+    format: px
+    default: 14
+    min: 0
+    max: 48
+    step: 1
+  -
+    id: velora-sidebar-right-margin
+    title: 展开后右侧距离
     type: variable-number-slider
     format: px
     default: 14
@@ -789,14 +802,23 @@ settings:
 .mod-sidedock .workspace-leaf-content {
   border-radius: max(8px, calc(var(--velora-panel-radius) - 4px));
   border: 1px solid var(--velora-border);
-  background: rgba(var(--velora-surface-rgb), 0.48);
+  background: var(--velora-panel-strong);
   box-shadow: 0 14px 36px rgba(var(--velora-shadow-rgb), 0.06);
-  backdrop-filter: blur(18px) saturate(1.2);
 }
 
 .theme-dark .mod-sidedock .workspace-leaf-content {
   border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(15, 23, 42, 0.58);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .mod-sidedock .workspace-leaf-content {
+    background: rgba(var(--velora-surface-rgb), 0.48);
+    backdrop-filter: blur(18px) saturate(1.2);
+  }
+
+  .theme-dark .mod-sidedock .workspace-leaf-content {
+    background: rgba(15, 23, 42, 0.58);
+  }
 }
 
 .workspace-ribbon {
@@ -1220,6 +1242,11 @@ body.velora-plugin-style-unified button:not(.clickable-icon):hover {
   box-shadow: 0 12px 28px rgba(var(--velora-accent-rgb), 0.16);
 }
 
+/* Keep mixed Settings rows aligned with native icons and dropdowns on hover. */
+.setting-item-control > button:not(.clickable-icon):hover {
+  transform: none;
+}
+
 .mod-cta {
   background: linear-gradient(180deg, color-mix(in srgb, var(--velora-blue) 76%, white) 0%, var(--velora-blue) 100%);
   color: white;
@@ -1585,6 +1612,7 @@ body {
   --velora-sidebar-width: 300px;
   --velora-sidebar-height: 86%;
   --velora-sidebar-left-margin: 14px;
+  --velora-sidebar-right-margin: 14px;
   --velora-sidebar-opacity: 0.88;
   --velora-sidebar-liquid-intensity: 0.16;
   --velora-sidebar-liquid-duration: 18s;
@@ -2800,10 +2828,150 @@ body:not(.is-mobile).velora-floating-sidebar .workspace-split.mod-horizontal.mod
   border-bottom-right-radius: inherit !important;
 }
 
-/* Optional liquid-glass sidebars. Disabled by default. */
-body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
-  border-color: rgba(var(--velora-accent-rgb), 0.14);
+/* Optional floating right sidebar. Disabled by default; enable independently in Style Settings. */
+body:not(.is-mobile).velora-floating-right-sidebar .sidebar-toggle-button.mod-right {
+  display: none !important;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split {
+  position: fixed !important;
+  display: flex !important;
+  visibility: visible !important;
+  z-index: 40 !important;
+  box-sizing: border-box;
+  width: var(--velora-sidebar-width) !important;
+  height: var(--velora-sidebar-height) !important;
+  min-width: 220px;
+  max-width: min(70vw, 720px);
+  min-height: 320px;
+  max-height: 96vh;
+  right: 0 !important;
+  left: auto !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin-block: auto !important;
+  align-self: center;
+  overflow: visible !important;
+  border-radius: var(--velora-sidebar-radius) !important;
   background:
+    linear-gradient(180deg, rgba(var(--velora-surface-rgb), var(--velora-sidebar-opacity)), rgba(var(--velora-surface-rgb), var(--velora-sidebar-opacity))) !important;
+  border: 1px solid var(--velora-border) !important;
+  box-shadow: 0 18px 54px rgba(var(--velora-shadow-rgb), 0.18) !important;
+  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.42s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s !important;
+  transition-delay: var(--velora-sidebar-retract-delay) !important;
+}
+
+/* The floating panel is vertically inset below the Windows controls, so reclaim
+   the native top-right frame reserve and keep its icon tabs compact. */
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  padding-right: 12px;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header {
+  position: relative;
+  flex: 0 0 28px;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-inner {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-status-container {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  transform: scale(0.55);
+  transform-origin: top right;
+}
+.theme-dark body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split,
+body.theme-dark:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split {
+  background:
+    linear-gradient(180deg, rgba(var(--velora-dark-surface-rgb), var(--velora-sidebar-opacity)), rgba(var(--velora-dark-surface-rgb), var(--velora-sidebar-opacity))) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:hover,
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:has(.is-being-renamed),
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:has(.has-active-menu) {
+  transform: translateX(calc(var(--velora-sidebar-right-margin) * -1)) !important;
+  transition-delay: 0s !important;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split::before {
+  content: "";
+  position: absolute;
+  z-index: 41;
+  left: calc(var(--velora-sidebar-handle-width) * -1);
+  top: 50%;
+  width: var(--velora-sidebar-handle-width);
+  height: var(--velora-sidebar-handle-height);
+  transform: translateY(-50%);
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(180deg, var(--velora-blue), color-mix(in srgb, var(--velora-blue) 74%, #000));
+  box-shadow: -2px 0 14px rgba(var(--velora-accent-rgb), 0.26);
+  opacity: 0.86;
+  cursor: pointer;
+  transition: opacity 0.24s ease, width 0.24s ease;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:hover::before,
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:has(.is-being-renamed)::before,
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split:has(.has-active-menu)::before {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40px -40px -40px 0;
+  background: transparent;
+  pointer-events: auto;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split :is(
+  .workspace-tabs,
+  .workspace-leaf,
+  .workspace-leaf-content,
+  .nav-files-container
+) {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split :is(
+  .workspace-sidedock-vault-profile,
+  .workspace-drawer-vault-switcher,
+  .workspace-drawer-vault-actions
+) {
+  border-bottom-left-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
+  border-bottom-right-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
+  overflow: hidden !important;
+  background-clip: padding-box !important;
+}
+
+body:not(.is-mobile).velora-floating-right-sidebar .workspace-split.mod-horizontal.mod-right-split :is(
+  .workspace-sidedock-vault-profile,
+  .workspace-drawer-vault-actions
+) > :last-child {
+  border-bottom-left-radius: inherit !important;
+  border-bottom-right-radius: inherit !important;
+}
+
+/* Optional liquid-glass sidebars. Disabled by default. */
+body.velora-sidebar-liquid-glass {
+  --velora-sidebar-liquid-decoration:
     radial-gradient(
       ellipse 115% 72% at 8% 6%,
       rgba(var(--velora-sky-rgb), var(--velora-sidebar-liquid-intensity)) 0%,
@@ -2825,6 +2993,17 @@ body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
       rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.86)),
       rgba(var(--velora-surface-rgb), calc(var(--velora-sidebar-opacity) * 0.58))
     );
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
+    backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) contrast(1.02);
+  }
+}
+
+body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
+  border-color: rgba(var(--velora-accent-rgb), 0.14);
+  background: var(--velora-sidebar-liquid-decoration);
   background-size: 168% 152%, 154% 164%, 172% 158%, 100% 100%;
   background-position: 4% 8%, 96% 92%, 78% 12%, center;
   background-repeat: no-repeat;
@@ -2832,14 +3011,13 @@ body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
     inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.78),
     inset 0 0 34px rgba(var(--velora-accent-rgb), 0.055),
     0 16px 42px rgba(var(--velora-shadow-rgb), 0.1);
-  backdrop-filter: blur(var(--velora-sidebar-blur)) saturate(1.18) contrast(1.02);
   animation: velora-sidebar-liquid-glass var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
 }
 
 .theme-dark body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
 body.theme-dark.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content {
   border-color: rgba(255, 255, 255, 0.13);
-  background:
+  --velora-sidebar-liquid-decoration:
     radial-gradient(
       ellipse 115% 72% at 8% 6%,
       rgba(var(--velora-sky-rgb), calc(var(--velora-sidebar-liquid-intensity) * 0.58)) 0%,
@@ -2931,7 +3109,8 @@ body:not(.is-mobile).velora-sidebar-liquid-glass .workspace-split.mod-left-split
   background: rgba(var(--velora-accent-rgb), 0.1);
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split {
   border-color: rgba(var(--velora-accent-rgb), 0.18) !important;
   background:
     radial-gradient(
@@ -2966,7 +3145,9 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
 }
 
 .theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
-body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
+.theme-dark body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split,
+body.theme-dark:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split {
   border-color: rgba(255, 255, 255, 0.14) !important;
   background:
     radial-gradient(
@@ -2996,7 +3177,8 @@ body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-gl
     0 22px 62px rgba(0, 0, 0, 0.32) !important;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile {
   border-top: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
@@ -3004,7 +3186,9 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
 }
 
 .theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile,
-body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile,
+.theme-dark body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile,
+body.theme-dark:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile {
   border-top: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
@@ -3012,6 +3196,12 @@ body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-gl
 }
 
 body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split :is(
+  .workspace-tab-container,
+  .workspace-leaf,
+  .workspace-leaf-content,
+  .nav-files-container
+),
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split :is(
   .workspace-tab-container,
   .workspace-leaf,
   .workspace-leaf-content,
@@ -3024,7 +3214,8 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   animation: none !important;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile {
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
@@ -3035,7 +3226,8 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   border-radius: 0 0 max(8px, calc(var(--velora-sidebar-radius) - 1px)) max(8px, calc(var(--velora-sidebar-radius) - 1px)) !important;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile::before {
   content: "";
   position: absolute;
   inset: -170% -34%;
@@ -3052,12 +3244,14 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile > * {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile > *,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile > * {
   position: relative;
   z-index: 1;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
   box-sizing: border-box;
   height: 36px;
   min-height: 36px;
@@ -3071,13 +3265,15 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   box-shadow: inset 0 1px 0 rgba(var(--velora-surface-rgb), 0.58);
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
   gap: 4px;
   overflow: visible !important;
   border-radius: 0 !important;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
   box-sizing: border-box;
   flex: 0 0 36px;
   width: 36px;
@@ -3091,7 +3287,10 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
 
 body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:hover,
 body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu,
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:hover,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover {
   color: var(--velora-blue);
   border-color: rgba(var(--velora-accent-rgb), 0.28);
   background: rgba(var(--velora-accent-rgb), 0.11);
@@ -3099,26 +3298,32 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
 }
 
 .theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
-body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+.theme-dark body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+body.theme-dark:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
   border-color: rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.055);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .theme-dark body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon,
-body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
+body.theme-dark:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon,
+.theme-dark body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon,
+body.theme-dark:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon {
   border-color: rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.04);
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-tabs {
   position: relative;
   isolation: isolate;
   overflow: hidden !important;
   border-radius: max(8px, calc(var(--velora-sidebar-radius) - 1px)) max(8px, calc(var(--velora-sidebar-radius) - 1px)) 0 0;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-tabs::after {
   content: "";
   position: absolute;
   inset: -34%;
@@ -3135,7 +3340,8 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   animation: velora-sidebar-liquid-layer var(--velora-sidebar-liquid-duration) ease-in-out infinite alternate;
 }
 
-body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs > * {
+body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs > *,
+body:not(.is-mobile).velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-tabs > * {
   position: relative;
   z-index: 1;
 }
@@ -3180,26 +3386,26 @@ body:not(.is-mobile).velora-floating-sidebar.velora-sidebar-liquid-glass .worksp
   }
 }
 
-body.velora-reduce-motion.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
-body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
-  animation: none !important;
-}
-
-body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
-  animation: none !important;
-}
-
-body.velora-reduce-motion.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before {
+body.velora-reduce-motion.velora-sidebar-liquid-glass :is(
+  .mod-sidedock .workspace-leaf-content,
+  .workspace-split.mod-horizontal.mod-left-split,
+  .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after,
+  .workspace-split.mod-horizontal.mod-left-split .workspace-sidedock-vault-profile::before,
+  .workspace-split.mod-horizontal.mod-right-split,
+  .workspace-split.mod-horizontal.mod-right-split .workspace-tabs::after
+) {
   animation: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   body.velora-sidebar-liquid-glass .mod-sidedock .workspace-leaf-content,
-  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split {
+  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split,
+  body.velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split {
     animation: none !important;
   }
 
-  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after {
+  body.velora-floating-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-left-split .workspace-tabs::after,
+  body.velora-floating-right-sidebar.velora-sidebar-liquid-glass .workspace-split.mod-horizontal.mod-right-split .workspace-tabs::after {
     animation: none !important;
   }
 
@@ -3710,6 +3916,11 @@ body.velora-density-compact :is(.workspace-leaf-content[data-type="bases"], .bas
     --velora-sidebar-blur: 14px;
     --velora-gradient-duration: 26s;
     --velora-gradient-intensity: 0.46;
+  }
+
+  /* The mobile navbar already owns the left-drawer control on iPad. */
+  body.is-mobile .sidebar-toggle-button.mod-left {
+    display: none;
   }
 
   .workspace-split.mod-root .workspace-leaf,
