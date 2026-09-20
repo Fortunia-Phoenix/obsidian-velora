@@ -1,4 +1,4 @@
-﻿.DS_Store
+.DS_Store
 Thumbs.db
 *.tmp
 *.bak
@@ -8,3 +8,5 @@ dist/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache/
+/FEATURES.zh-CN.md
+/Tests/
